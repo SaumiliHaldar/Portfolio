@@ -55,9 +55,6 @@ export default function Header() {
     zIndex: 50,
     transition: "all 0.5s ease",
     backgroundColor: "rgba(10, 10, 10, 0.95)",
-    // backgroundColor: isScrolled
-    //   ? "rgba(10, 10, 10, 0.95)"
-    //   : "rgba(10, 10, 10, 0.95)",
     backdropFilter: getValue({
       xs: "blur(10px)",
       sm: "blur(10px)",
@@ -261,18 +258,20 @@ export default function Header() {
     justifyContent: "center",
   };
 
+  // Enhanced mobile menu style - now stays fixed at top with margin and rounded corners
   const mobileMenuStyle = {
     position: "fixed",
     top: getValue({
-      xs: "60px",
-      sm: "64px",
-      md: "68px",
-      lg: "72px",
-      xl: "76px",
-      "2xl": "80px",
+      xs: "70px", // Added 10px margin from header
+      sm: "74px", // Added 10px margin from header
+      md: "78px",
+      lg: "82px",
+      xl: "86px",
+      "2xl": "90px",
     }),
-    left: 0,
-    right: 0,
+    left: getValue({ xs: "12px", sm: "16px" }), // Added side margins
+    right: getValue({ xs: "12px", sm: "16px" }), // Added side margins
+    zIndex: 40, // Ensure it's below the header but above other content
     backgroundColor: "rgba(10, 10, 10, 0.98)",
     backdropFilter: getValue({
       xs: "blur(10px)",
@@ -282,10 +281,14 @@ export default function Header() {
       xl: "blur(15px)",
       "2xl": "blur(20px)",
     }),
-    borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-    padding: getValue({ xs: "16px", sm: "20px 20px" }),
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    borderRadius: getValue({ xs: "12px", sm: "16px" }), // Added rounded corners
+    padding: getValue({ xs: "16px", sm: "20px" }),
     display: isMobileMenuOpen && isMobile ? "block" : "none",
-    maxHeight: getValue({ xs: "75vh", sm: "80vh" }),
+    maxHeight: getValue({ 
+      xs: "calc(100vh - 90px)", // Adjusted for new top position + bottom margin
+      sm: "calc(100vh - 100px)" 
+    }),
     overflowY: "auto",
     boxShadow: "0 10px 40px rgba(0, 0, 0, 0.3)",
   };
@@ -313,6 +316,7 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         style={headerStyle}
+        className="fixed top-0 left-0 right-0 z-50 overflow-hidden"
       >
         <div style={containerStyle}>
           <nav style={navStyle}>
@@ -327,7 +331,6 @@ export default function Header() {
                 <motion.img
                   src="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png"
                   alt="Logo"
-                  //   className="w-8 h-8 invert saturate-250 hue-rotate-180 md:w-10 md:h-10 lg:w-12 lg:h-12"
                   className="w-6 h-6 invert saturate-250 hue-rotate-180 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10"
                   animate={{ rotate: 360 }}
                   transition={{
@@ -407,6 +410,7 @@ export default function Header() {
               style={mobileMenuButtonStyle}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
+              className="relative z-50"
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
@@ -436,11 +440,12 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && isMobile && (
           <motion.div
             style={mobileMenuStyle}
+            className="fixed top-[70px] sm:top-[74px] left-3 right-3 sm:left-4 sm:right-4 z-40 rounded-xl sm:rounded-2xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
