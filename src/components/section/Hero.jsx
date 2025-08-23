@@ -28,7 +28,7 @@ function TypewriterText({ text }) {
   return (
     <>
       {displayText}
-      {showCursor && (
+      {/* {showCursor && (
         <motion.span
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.5, repeat: Infinity }}
@@ -43,7 +43,7 @@ function TypewriterText({ text }) {
             verticalAlign: "middle",
           }}
         />
-      )}
+      )} */}
     </>
   );
 }

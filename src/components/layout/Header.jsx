@@ -286,7 +286,7 @@ export default function Header() {
     padding: getValue({ xs: "16px", sm: "20px" }),
     display: isMobileMenuOpen && isMobile ? "block" : "none",
     maxHeight: getValue({ 
-      xs: "calc(100vh - 90px)", // Adjusted for new top position + bottom margin
+      xs: "calc(100vh - 90px)",
       sm: "calc(100vh - 100px)" 
     }),
     overflowY: "auto",
@@ -316,7 +316,7 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         style={headerStyle}
-        className="fixed top-0 left-0 right-0 z-50 overflow-hidden"
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <div style={containerStyle}>
           <nav style={navStyle}>
@@ -357,7 +357,7 @@ export default function Header() {
               </motion.div>
             </motion.a>
 
-            {/* Desktop Navigation - Now Centered */}
+            {/* Desktop Navigation */}
             <div style={desktopNavStyle}>
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -383,7 +383,7 @@ export default function Header() {
               })}
             </div>
 
-            {/* CTA Button - Now Right Aligned */}
+            {/* CTA Button - Right Aligned */}
             <motion.a
               href="./Saumili Haldar-Resume.pdf"
               download="Saumili Haldar-Resume.pdf"
