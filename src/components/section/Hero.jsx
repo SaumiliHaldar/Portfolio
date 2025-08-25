@@ -1,9 +1,24 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Rocket, ArrowBigDownDash, Code2, Github } from "lucide-react";
-import { FaPython, FaJava, FaReact, FaDocker, FaGithub,FaGitAlt } from "react-icons/fa";
-import { SiFastapi, SiDjango, SiTensorflow, SiFigma, SiHuggingface, SiPostman, SiVercel } from "react-icons/si";
+import {
+  FaPython,
+  FaJava,
+  FaReact,
+  FaDocker,
+  FaGithub,
+  FaGitAlt,
+} from "react-icons/fa";
+import {
+  SiFastapi,
+  SiDjango,
+  SiTensorflow,
+  SiFigma,
+  SiHuggingface,
+  SiPostman,
+  SiVercel,
+} from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { RiNextjsFill } from "react-icons/ri";
 import { useState, useEffect } from "react";
@@ -53,27 +68,30 @@ function TypewriterText({ text }) {
   );
 }
 
-
 // Define icon components
-const PythonIcon = () => <FaPython className="h-12 w-12 text-blue-500" />;
-const JavaIcon = () => <FaJava className="h-12 w-12 text-red-500" />;
-const FastApiIcon = () => <SiFastapi className="h-12 w-12 text-teal-600" />;
-const DjangoIcon = () => <SiDjango className="h-12 w-12 text-green-700" />;
-const HuggingFaceIcon = () => <SiHuggingface className="h-12 w-12 text-orange-600" />;
-const FigmaIcon = () => <SiFigma className="h-12 w-12 text-purple-500" />;
-const ReactIcon = () => <FaReact className="h-12 w-12 text-cyan-500" />;
-const TfIcon = () => <SiTensorflow className="h-12 w-12 text-orange-500" />;
-const NextJsIcon = () => <RiNextjsFill className="h-12 w-12 text-black dark:text-white" />;
-const PostmanIcon = () => <SiPostman className="h-12 w-12 text-orange-500" />;
-const GitIcon = () => (
-  <FaGitAlt className="h-12 w-12 text-orange-500" />
+const PythonIcon = () => <FaPython className="h-8 w-8 text-blue-500" />;
+const JavaIcon = () => <FaJava className="h-8 w-8 text-red-500" />;
+const FastApiIcon = () => <SiFastapi className="h-8 w-8 text-teal-600" />;
+const DjangoIcon = () => <SiDjango className="h-8 w-8 text-green-700" />;
+const HuggingFaceIcon = () => (
+  <SiHuggingface className="h-8 w-8 text-orange-600" />
 );
+const FigmaIcon = () => <SiFigma className="h-8 w-8 text-purple-500" />;
+const ReactIcon = () => <FaReact className="h-8 w-8 text-cyan-500" />;
+const TfIcon = () => <SiTensorflow className="h-8 w-8 text-orange-500" />;
+const NextJsIcon = () => (
+  <RiNextjsFill className="h-8 w-8 text-black dark:text-white" />
+);
+const PostmanIcon = () => <SiPostman className="h-8 w-8 text-orange-500" />;
+const GitIcon = () => <FaGitAlt className="h-8 w-8 text-orange-500" />;
 const GitHubIcon = () => (
-  <FaGithub className="h-12 w-12 text-gray-700 dark:text-gray-300" />
+  <FaGithub className="h-8 w-8 text-gray-700 dark:text-gray-300" />
 );
-const DockerIcon = () => <FaDocker className="h-12 w-12 text-blue-500" />;
-const VscodeIcon = () => <VscVscode className="h-12 w-12 text-blue-500" />;
-const VercelIcon = () => <SiVercel className="h-12 w-12 text-black dark:text-white" />;
+const DockerIcon = () => <FaDocker className="h-8 w-8 text-blue-500" />;
+const VscodeIcon = () => <VscVscode className="h-8 w-8 text-blue-500" />;
+const VercelIcon = () => (
+  <SiVercel className="h-8 w-8 text-black dark:text-white" />
+);
 
 const techIcons = [
   { name: "Python", icon: <PythonIcon /> },
@@ -146,7 +164,7 @@ export default function Hero() {
               duration: 0.3,
               delay: 0.8,
             }}
-            className="relative z-10 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+            className="relative z-10 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl py-4 text-center text-md font-normal text-neutral-300 dark:text-neutral-400"
           >
             I am a Computer Science and Engineering graduate from OmDayal Group
             of Institutions with hands-on experience in Python development,
@@ -185,20 +203,21 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-
           {/* Tech Stack Icons - Infinite Scroll */}
-          <InfiniteMovingCards
-            items={techIcons}
-            direction="left"
-            speed="slow"
-            pauseOnHover
-            className="mt-12"
-            renderItem={(item) => (
-              <div className="flex h-22 w-22 items-center justify-center rounded-2xl bg-gray-200 shadow-md hover:scale-110 transition-transform duration-300">
+          <div>
+            <InfiniteMovingCards
+              items={techIcons}
+              direction="left"
+              speed="slow"
+              pauseOnHover
+              className="mt-12"
+              renderItem={(item) => (
+                <div className="flex h-22 w-22 items-center justify-center rounded-2xl bg-gray-200 shadow-md hover:scale-110 transition-transform duration-300">
                   {item.icon}
-              </div>
-            )}
-          />
+                </div>
+              )}
+            />
+          </div>
         </div>
       </div>
     </>
