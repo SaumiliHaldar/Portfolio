@@ -204,7 +204,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Tech Stack Icons - Infinite Scroll */}
-          <div>
+          {/* <div>
             <InfiniteMovingCards
               items={techIcons}
               direction="left"
@@ -212,12 +212,20 @@ export default function Hero() {
               pauseOnHover
               className="mt-12"
               renderItem={(item) => (
-                <div className="flex h-22 w-22 items-center justify-center rounded-2xl bg-gray-200 shadow-md hover:scale-110 transition-transform duration-300">
+                <div className="">
                   {item.icon}
                 </div>
               )}
             />
-          </div>
+          </div> */}
+
+          {/* <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+            <InfiniteMovingCards
+              items={techIcons}
+              direction="right"
+              speed="slow"
+            />
+          </div> */}
         </div>
       </div>
     </>
