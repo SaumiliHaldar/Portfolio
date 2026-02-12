@@ -63,12 +63,14 @@ export default function MobileNav() {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-primary/20">
+
                     <img
-                      src="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png"
+                      src="/logo.avif"
                       alt="Saumili Haldar"
-                      className="h-full w-full object-cover rotate-98"
+                      className="h-full w-full object-cover rotate"
                     />
                   </div>
+
                   <div className="flex flex-col text-left">
                     <h1 className="text-base font-bold leading-none">Saumili Haldar</h1>
                     <p className="text-[12px] text-muted-foreground mt-1">Software Developer</p>

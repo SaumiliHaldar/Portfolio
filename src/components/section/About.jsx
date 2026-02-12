@@ -54,11 +54,11 @@ export default function About() {
             </p>
             
             <div className="grid grid-cols-2 gap-4 pt-4">
-               <div className="flex items-center gap-3 rounded-lg border border-border p-4 bg-card/50">
+               <div className="flex items-center justify-center gap-3 rounded-lg border border-border p-4 bg-card/50">
                   <Code className="h-5 w-5 text-primary" />
                   <span className="text-sm font-medium">Clean Code</span>
                </div>
-               <div className="flex items-center gap-3 rounded-lg border border-border p-4 bg-card/50">
+               <div className="flex items-center justify-center gap-3 rounded-lg border border-border p-4 bg-card/50">
                   <Sparkles className="h-5 w-5 text-primary" />
                   <span className="text-sm font-medium">Modern UI/UX</span>
                </div>

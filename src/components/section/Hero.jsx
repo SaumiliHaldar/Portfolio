@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowBigDownDash, Code2, Github, Rocket } from "lucide-react";
 
+
 export default function Hero() {
   const handleScroll = (e, id) => {
     e.preventDefault();
@@ -19,13 +20,15 @@ export default function Hero() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="md:hidden w-full max-w-[240px] mb-4"
+        className="md:hidden w-full max-w-[280px] mb-4"
+
       >
          <div 
           className="relative aspect-square bg-primary/10 overflow-hidden"
           style={{
-            clipPath: "polygon(50% 0%, 90% 10%, 100% 40%, 80% 90%, 50% 100%, 20% 90%, 0% 40%, 10% 10%)",
+            clipPath: "url(#blob-clip)",
           }}
+
         >
           <img 
             src="/Saumili.jpg" 
@@ -108,11 +111,13 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
         <div 
-          className="relative w-72 h-72 md:w-96 md:h-96 bg-primary/10 overflow-hidden shadow-2xl transition-all duration-700 hover:scale-[1.05]"
+          className="relative w-80 h-80 md:w-[480px] md:h-[480px] bg-primary/10 overflow-hidden shadow-2xl transition-all duration-700 hover:scale-[1.05]"
+
           style={{
-            clipPath: "polygon(50% 0%, 90% 10%, 100% 40%, 80% 90%, 50% 100%, 20% 90%, 0% 40%, 10% 10%)", // Rounded Guitar Pick shape
+            clipPath: "url(#blob-clip)",
             borderRadius: "0" 
           }}
+
         >
           <img 
             src="/Saumili.jpg" 
@@ -129,6 +134,17 @@ export default function Hero() {
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
       <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[100px]" />
+
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <clipPath id="blob-clip" clipPathUnits="objectBoundingBox">
+            <path d="M0.468,0.037 C0.692,0.037 0.969,0.231 0.969,0.492 C0.969,0.754 0.723,0.954 0.462,0.954 C0.2,0.954 0.031,0.738 0.031,0.462 C0.031,0.185 0.246,0.037 0.468,0.037 Z" />
+          </clipPath>
+        </defs>
+      </svg>
     </section>
+
+
+
   );
 }
