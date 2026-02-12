@@ -1,233 +1,134 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Rocket, ArrowBigDownDash, Code2, Github } from "lucide-react";
-import {
-  FaPython,
-  FaJava,
-  FaReact,
-  FaDocker,
-  FaGithub,
-  FaGitAlt,
-} from "react-icons/fa";
-import {
-  SiFastapi,
-  SiDjango,
-  SiTensorflow,
-  SiFigma,
-  SiHuggingface,
-  SiPostman,
-  SiVercel,
-} from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-import { RiNextjsFill } from "react-icons/ri";
-import { useState, useEffect } from "react";
-import { useResponsive } from "@/lib/responsive";
-import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
-
-function TypewriterText({ text }) {
-  const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    } else {
-      const cursorTimeout = setTimeout(() => {
-        setShowCursor(false);
-      }, 1000);
-      return () => clearTimeout(cursorTimeout);
-    }
-  }, [currentIndex, text]);
-
-  return (
-    <>
-      {displayText}
-      {/* {showCursor && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.5, repeat: Infinity }}
-          style={{
-            display: "inline-block",
-            width: "3px",
-            // height: "1em",
-            height: "calc(1em * var(--cursor-scale, 1))",
-            background: "linear-gradient(180deg, #667eea 0%, #764ba2 100%)",
-            marginLeft: "4px",
-            // verticalAlign: "",
-            verticalAlign: "middle",
-          }}
-        />
-      )} */}
-    </>
-  );
-}
-
-// Define icon components
-const PythonIcon = () => <FaPython className="h-8 w-8 text-blue-500" />;
-const JavaIcon = () => <FaJava className="h-8 w-8 text-red-500" />;
-const FastApiIcon = () => <SiFastapi className="h-8 w-8 text-teal-600" />;
-const DjangoIcon = () => <SiDjango className="h-8 w-8 text-green-700" />;
-const HuggingFaceIcon = () => (
-  <SiHuggingface className="h-8 w-8 text-orange-600" />
-);
-const FigmaIcon = () => <SiFigma className="h-8 w-8 text-purple-500" />;
-const ReactIcon = () => <FaReact className="h-8 w-8 text-cyan-500" />;
-const TfIcon = () => <SiTensorflow className="h-8 w-8 text-orange-500" />;
-const NextJsIcon = () => (
-  <RiNextjsFill className="h-8 w-8 text-black dark:text-white" />
-);
-const PostmanIcon = () => <SiPostman className="h-8 w-8 text-orange-500" />;
-const GitIcon = () => <FaGitAlt className="h-8 w-8 text-orange-500" />;
-const GitHubIcon = () => (
-  <FaGithub className="h-8 w-8 text-gray-700 dark:text-gray-300" />
-);
-const DockerIcon = () => <FaDocker className="h-8 w-8 text-blue-500" />;
-const VscodeIcon = () => <VscVscode className="h-8 w-8 text-blue-500" />;
-const VercelIcon = () => (
-  <SiVercel className="h-8 w-8 text-black dark:text-white" />
-);
-
-const techIcons = [
-  { name: "Python", icon: <PythonIcon /> },
-  { name: "Java", icon: <JavaIcon /> },
-  { name: "FastAPI", icon: <FastApiIcon /> },
-  { name: "Django", icon: <DjangoIcon /> },
-  { name: "Hugging Face", icon: <HuggingFaceIcon /> },
-  { name: "Figma", icon: <FigmaIcon /> },
-  { name: "Postman", icon: <PostmanIcon /> },
-  { name: "React", icon: <ReactIcon /> },
-  { name: "Next.js", icon: <NextJsIcon /> },
-  { name: "VS Code", icon: <VscodeIcon /> },
-  { name: "TensorFlow", icon: <TfIcon /> },
-  { name: "GitHub", icon: <GitHubIcon /> },
-  { name: "Git", icon: <GitIcon /> },
-  { name: "Docker", icon: <DockerIcon /> },
-  { name: "Vercel", icon: <VercelIcon /> },
-];
+import { ArrowBigDownDash, Code2, Github, Rocket } from "lucide-react";
 
 export default function Hero() {
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
+
   return (
-    <>
-      <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-900 w-full rounded-md z-0">
-        <div className="px-4 py-10 md:py-20">
-          <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold dark:text-slate-700 md:text-4xl lg:text-7xl">
-            {"Hi, I'm".split(" ").map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.1,
-                  ease: "easeInOut",
-                }}
-                className="mr-2 inline-block"
-              >
-                {word}
-              </motion.span>
-            ))}
-
-            {/* Line break for mobile */}
-            <br className="block md:hidden md:mt-4" />
-
-            {/* Typewriter effect on name */}
-            <motion.span
-              className="bg-gradient-to-r from-blue-600 to-blue-100 bg-clip-text text-transparent"
-              initial={{ backgroundPosition: "0% 50%" }}
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              style={{
-                backgroundSize: "200% 200%",
-                display: "inline-block",
-              }}
-            >
-              <TypewriterText text="Saumili Haldar" />
-            </motion.span>
-          </h1>
-
-          <motion.p
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: 0.3,
-              delay: 0.8,
-            }}
-            className="relative z-10 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl py-4 text-center text-md font-normal text-neutral-300 dark:text-neutral-400"
-          >
-            I am a Computer Science and Engineering graduate from OmDayal Group
-            of Institutions with hands-on experience in Python development,
-            Machine Learning, and scalable API design. Currently, I am working
-            as a Software Developer at RS Consultancy, where I contribute to
-            building robust software solutions and driving technical innovation.
-          </motion.p>
-
-          <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: 0.3,
-              delay: 1,
-            }}
-            className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
-          >
-            <button
-              onClick={() => window.open("https://github.com/SaumiliHaldar")}
-              className="w-60 transform rounded-full bg-neutral-900 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-            >
-              <Rocket className="inline-block mr-2 h-5 w-5" />
-              View My Work
-            </button>
-            <motion.a
-              href="./Saumili Haldar-Resume.pdf"
-              download="Saumili Haldar-Resume.pdf"
-              className="w-60 flex items-center justify-center gap-2 transform rounded-full border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900"
-            >
-              <ArrowBigDownDash className="h-5 w-5" />
-              Download Resume
-            </motion.a>
-          </motion.div>
-
-          {/* Tech Stack Icons - Infinite Scroll */}
-          {/* <div>
-            <InfiniteMovingCards
-              items={techIcons}
-              direction="left"
-              speed="slow"
-              pauseOnHover
-              className="mt-12"
-              renderItem={(item) => (
-                <div className="">
-                  {item.icon}
-                </div>
-              )}
-            />
-          </div> */}
-
-          {/* <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-            <InfiniteMovingCards
-              items={techIcons}
-              direction="right"
-              speed="slow"
-            />
-          </div> */}
+    <section className="relative md:min-h-screen flex flex-col md:flex-row items-center justify-between px-4 py-20 md:px-12 md:py-32 gap-12 overflow-hidden">
+      {/* Mobile Image (Moved to Top) */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="md:hidden w-full max-w-[240px] mb-4"
+      >
+         <div 
+          className="relative aspect-square bg-primary/10 overflow-hidden"
+          style={{
+            clipPath: "polygon(50% 0%, 90% 10%, 100% 40%, 80% 90%, 50% 100%, 20% 90%, 0% 40%, 10% 10%)",
+          }}
+        >
+          <img 
+            src="/Saumili.jpg" 
+            alt="Saumili Haldar" 
+            className="w-full h-full object-cover"
+          />
         </div>
+      </motion.div>
+
+      <div className="z-10 w-full max-w-2xl text-center md:text-left">
+        <motion.h1 
+          className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0 }}
+        >
+          Hi, I'm{" "}
+          <span className="text-primary">Saumili Haldar</span>
+        </motion.h1>
+        
+        <motion.h2 
+          className="mt-4 text-xl font-medium text-muted-foreground sm:text-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Software Developer & Machine Learning Enthusiast
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6 text-lg text-muted-foreground leading-relaxed"
+        >
+          I am a Computer Science and Engineering graduate with hands-on experience in 
+          <span className="font-semibold text-foreground"> Python</span>, 
+          <span className="font-semibold text-foreground"> Machine Learning</span>, and 
+          <span className="font-semibold text-foreground"> Scalable API Design</span>. 
+          Currently working at <span className="text-primary">RS Consultancy</span>, 
+          building robust software solutions.
+        </motion.p>
+
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5, delay: 0.4 }}
+           className="mt-8 flex flex-wrap justify-center md:justify-start gap-4"
+        >
+          <motion.a
+            href="https://github.com/SaumiliHaldar"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90"
+          >
+            <Rocket className="h-4 w-4" />
+            View my Work
+          </motion.a>
+          
+          <motion.a
+            href="#projects"
+            onClick={(e) => handleScroll(e, "projects")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            <Code2 className="h-4 w-4" />
+             See Projects
+          </motion.a>
+        </motion.div>
       </div>
-    </>
+
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-10 hidden md:flex items-center justify-center"
+      >
+        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+        <div 
+          className="relative w-72 h-72 md:w-96 md:h-96 bg-primary/10 overflow-hidden shadow-2xl transition-all duration-700 hover:scale-[1.05]"
+          style={{
+            clipPath: "polygon(50% 0%, 90% 10%, 100% 40%, 80% 90%, 50% 100%, 20% 90%, 0% 40%, 10% 10%)", // Rounded Guitar Pick shape
+            borderRadius: "0" 
+          }}
+        >
+          <img 
+            src="/Saumili.jpg" 
+            alt="Saumili Haldar" 
+            className="w-full h-full object-cover transition-all duration-700 brightness-110 hover:brightness-100"
+          />
+        </div>
+        
+        {/* Floating Decorative Elements around image */}
+        <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-indigo-500/30 blur-3xl -z-10 animate-pulse" />
+        <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-primary/40 blur-3xl -z-10 animate-pulse delay-1000" />
+      </motion.div>
+
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
+      <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[100px]" />
+    </section>
   );
 }
