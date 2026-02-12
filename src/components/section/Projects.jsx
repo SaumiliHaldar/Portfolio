@@ -6,31 +6,40 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Project Alpha",
+    title: "Lysn",
     description:
-      "A comprehensive analysis tool leveraging machine learning to predict market trends with high accuracy.",
-    tags: ["Python", "TensorFlow", "React", "FastAPI"],
-    github: "https://github.com/SaumiliHaldar",
-    demo: "#",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "Lysn is an innovative PDF-to-audio platform that uses advanced text-to-speech to turn documents into natural-sounding audio you can listen to anytime, anywhere.",
+    tags: ["FastAPI", "Next.js", "MongoDB", "TailwindCSS", "Framer Motion", "gTTS", "PyPDF2"],
+    github: "https://github.com/SaumiliHaldar/Lysn",
+    demo: "https://lysn.vercel.app/",
+    image: "/lysn.jpg",
   },
   {
-    title: "Creative Portfolio",
+    title: "NexGenie",
     description:
-      "A modern, responsive portfolio website built with Next.js and Framer Motion, featuring a unique sidebar layout.",
-    tags: ["Next.js", "TailwindCSS", "Framer Motion"],
-    github: "https://github.com/SaumiliHaldar",
-    demo: "#",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
+      "NexGenie is an AI-powered chatbot for the LearnNexus LMS that delivers real-time academic help, coding support, and personalized learning guidance.",
+    tags: ["FastAPI", "Python", "React", "MongoDB", "FAISS", "Dialogflow"],
+    github: "https://github.com/SaumiliHaldar/NexGenie",
+    demo: "https://nexgenie.vercel.app/",
+    image: "/nexgenie.jpg",
   },
   {
-    title: "EcoTracker App",
+    title: "MausamVibe",
     description:
-      "A mobile-first web application designed to help users track their carbon footprint and suggest eco-friendly habits.",
-    tags: ["React Native", "Node.js", "MongoDB"],
-    github: "https://github.com/SaumiliHaldar",
-    demo: "#",
-    image: "https://images.unsplash.com/photo-1542601906990-24d4c16419d4?q=80&w=2070&auto=format&fit=crop",
+      "MausamVibe is an intuitive weather app that provides real-time, location-based updates, forecasts, and visual weather insights to help users stay prepared.",
+    tags: ["Django", "Python", "Weather API", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/SaumiliHaldar/MausamVibe",
+    demo: "https://mausamvibe.onrender.com/",
+    image: "/mausamvibe.jpg",
+  },
+  {
+    title: "VibeStream",
+    description:
+      "VibeStream is a live streaming platform that enables real-time interaction, customizable streams, and seamless engagement through a responsive, user-friendly experience.",
+    tags: ["Django", "Python", "PostgreSQL", "JavaScript", "OAuth", "ZegoCloud"],
+    github: "https://github.com/SaumiliHaldar/VibeStream",
+    demo: "https://vibestream-dt4t.onrender.com",
+    image: "/vibestream.jpg",
   },
 ];
 
@@ -81,13 +90,13 @@ export default function Projects() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={item}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 h-full"
             >
               <div className="relative h-48 w-full overflow-hidden bg-muted">
                  {/*  Use next/image for production, standard img for easy URL usage in demo */}
@@ -101,7 +110,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-background text-foreground transition-transform hover:scale-110"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-white transition-transform hover:scale-110"
                     title="View Code"
                   >
                     <Github className="h-5 w-5" />
@@ -118,22 +127,44 @@ export default function Projects() {
                 </div>
               </div>
               
-              <div className="flex flex-1 flex-col p-6 items-center text-center">
-                <h3 className="text-xl font-bold text-card-foreground">
+              <div className="flex flex-1 flex-col p-5 items-center text-center">
+                <h3 className="text-lg font-bold text-card-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm text-muted-foreground">
+                <p className="mt-2 flex-1 text-xs text-muted-foreground line-clamp-4">
                   {project.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                <div className="mt-4 flex flex-wrap gap-1.5 justify-center">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+                      className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary whitespace-nowrap"
                     >
                       {tag}
                     </span>
                   ))}
+                </div>
+
+                {/* Mobile Links - Only visible on small screens */}
+                <div className="mt-6 flex w-full gap-3 sm:hidden">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-zinc-800 py-2.5 text-xs font-medium text-white transition-opacity hover:opacity-90"
+                  >
+                    <Github className="h-4 w-4" />
+                    Code
+                  </a>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-xs font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Demo
+                  </a>
                 </div>
               </div>
             </motion.div>

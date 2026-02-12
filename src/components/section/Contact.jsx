@@ -1,9 +1,98 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, X } from "lucide-react";
+
+// Themed Toaster Component
+const Toast = ({ message, type, onClose }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.3 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+      className={`fixed bottom-8 right-4 z-50 flex items-center gap-3 rounded-lg border px-4 py-3 shadow-lg backdrop-blur-md ${
+        type === "success" 
+          ? "bg-green-500/10 border-green-500/50 text-green-500" 
+          : "bg-red-500/10 border-red-500/50 text-red-500"
+      }`}
+    >
+      {type === "success" ? (
+        <CheckCircle2 className="h-5 w-5" />
+      ) : (
+        <AlertCircle className="h-5 w-5" />
+      )}
+      <p className="text-sm font-medium">{message}</p>
+      <button 
+        onClick={onClose}
+        className="ml-2 rounded-full p-1 hover:bg-foreground/10 transition-colors"
+      >
+        <X className="h-4 w-4" />
+      </button>
+    </motion.div>
+  );
+};
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  
+  const [status, setStatus] = useState("idle"); // idle, submitting, success, error
+  const [toast, setToast] = useState(null);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const SCRIPT_URL = process.env.NEXT_PUBLIC_CONTACT_URL;
+
+    try {
+      // Create form data for Apps Script (traditional URL-encoded)
+      const formBody = new URLSearchParams();
+      Object.keys(formData).forEach(key => {
+        formBody.append(key, formData[key]);
+      });
+
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: formBody,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      const result = await response.json();
+
+      if (result.result === "success") {
+        setStatus("success");
+        setToast({ message: "Message sent successfully!", type: "success" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.error || "Failed to send");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setToast({ message: "Something went wrong. Please try again.", type: "error" });
+    }
+  };
+
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => setToast(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
+
   return (
     <section
       id="contact"
@@ -93,13 +182,16 @@ export default function Contact() {
              transition={{ duration: 0.5, delay: 0.4 }}
              className="relative rounded-2xl border border-border bg-card p-8 shadow-sm"
           >
-             <form className="flex flex-col space-y-4">
+             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                    <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
                       <input 
                         id="name" 
                         type="text" 
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your Name" 
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       />
@@ -109,6 +201,9 @@ export default function Contact() {
                       <input 
                         id="email" 
                         type="email" 
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Your Email" 
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       />
@@ -120,6 +215,9 @@ export default function Contact() {
                    <input 
                      id="subject" 
                      type="text" 
+                     required
+                     value={formData.subject}
+                     onChange={handleChange}
                      placeholder="Your Subject" 
                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                    />
@@ -130,6 +228,9 @@ export default function Contact() {
                    <textarea
                      id="message" 
                      rows={4}
+                     required
+                     value={formData.message}
+                     onChange={handleChange}
                      placeholder="Your Message..." 
                      className="flex h-32 w-full resize-none rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 overflow-y-auto"
                    />
@@ -137,15 +238,26 @@ export default function Contact() {
                 
                 <button
                   type="submit"
+                  disabled={status === "submitting"}
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
-                   Send Message
+                   {status === "submitting" ? "Sending..." : "Send Message"}
                    <Send className="ml-2 h-4 w-4" />
                 </button>
              </form>
           </motion.div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {toast && (
+          <Toast 
+            message={toast.message} 
+            type={toast.type} 
+            onClose={() => setToast(null)} 
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

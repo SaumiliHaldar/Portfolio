@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Mail, LayoutGrid, ArrowBigDownDash, BookOpen } from "lucide-react";
+import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen } from "lucide-react";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 
@@ -61,9 +61,19 @@ export default function MobileNav() {
               className="fixed right-0 top-0 z-50 h-full w-3/4 max-w-sm bg-sidebar border-l border-sidebar-border p-6 shadow-xl text-sidebar-foreground"
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="text-xl font-bold">
-                  Saumili Haldar
-                </span>
+                <div className="flex items-center gap-3">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-primary/20">
+                    <img
+                      src="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png"
+                      alt="Saumili Haldar"
+                      className="h-full w-full object-cover rotate-98"
+                    />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <h1 className="text-base font-bold leading-none">Saumili Haldar</h1>
+                    <p className="text-[12px] text-muted-foreground mt-1">Software Developer</p>
+                  </div>
+                </div>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="rounded-full p-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -98,7 +108,7 @@ export default function MobileNav() {
                   download
                   className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-base font-medium text-primary-foreground transition-opacity hover:opacity-90"
                 >
-                  <ArrowBigDownDash className="h-5 w-5" />
+                  <Download className="h-5 w-5" />
                   Download Resume
                 </a>
               </div>

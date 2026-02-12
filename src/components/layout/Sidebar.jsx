@@ -8,7 +8,7 @@ import {
   BookOpen,
   Linkedin,
   Github,
-  ArrowBigDownDash,
+  Download,
   LayoutGrid,
 } from "lucide-react";
 import Image from "next/image";
@@ -45,7 +45,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-72 flex-col justify-between border-r border-border bg-sidebar px-6 py-8 text-sidebar-foreground lg:flex">
+    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-64 flex-col justify-between border-r border-border bg-sidebar px-6 py-8 text-sidebar-foreground lg:flex">
       {/* Profile Section */}
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
@@ -54,7 +54,7 @@ export default function Sidebar() {
             <img
                src="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png"
                alt="Saumili Haldar"
-               className="h-full w-full object-cover"
+               className="h-full w-full object-cover rotate-98"
             />
           </div>
           <div className="flex flex-col">
@@ -110,9 +110,15 @@ export default function Sidebar() {
           download
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
         >
-          <ArrowBigDownDash className="h-4 w-4" />
+          <Download className="h-4 w-4" />
           Download Resume
         </a>
+
+        {/* Copyright notice for desktop */}
+        <div className="mt-4 border-t border-border/40 pt-6 text-center text-[11px] leading-relaxed text-muted-foreground/50">
+          <p>© 2026 Saumili Haldar</p>
+          <p className="font-medium">All rights reserved.</p>
+        </div>
       </div>
     </aside>
   );
