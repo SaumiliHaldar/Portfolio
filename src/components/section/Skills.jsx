@@ -127,12 +127,12 @@ export default function Skills() {
                       key={skill.name}
                       variants={item}
                       whileHover={{ scale: 1.1, translateY: -5 }}
-                      className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/50 hover:shadow-lg w-24 h-24"
+                      className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/50 hover:shadow-lg w-28 h-28"
                     >
                       <Icon
                         className={`h-8 w-8 transition-colors ${skill.colorClass}`}
                       />
-                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground text-center line-clamp-1">
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground text-center">
                         {skill.name}
                       </span>
                     </motion.div>
