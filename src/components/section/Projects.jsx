@@ -62,7 +62,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative flex md:min-h-screen flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
+      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
     >
       <div className="z-10 w-full max-w-7xl px-4 md:px-6">
         <motion.div
@@ -105,7 +105,7 @@ export default function Projects() {
                   alt={project.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center gap-4">
+                <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hidden md:flex items-center justify-center gap-4">
                   <a
                     href={project.github}
                     target="_blank"

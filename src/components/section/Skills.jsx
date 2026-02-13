@@ -19,6 +19,10 @@ import {
   SiMongodb,
   SiPostgresql,
   SiMysql,
+  SiRender,
+  SiJavascript,
+  SiSwagger,
+  SiDialogflow,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { RiNextjsFill } from "react-icons/ri";
@@ -30,6 +34,7 @@ const skillCategories = [
       { name: "React", icon: FaReact, colorClass: "text-sky-400" },
       { name: "Next.js", icon: RiNextjsFill, colorClass: "text-foreground" },
       { name: "Vercel", icon: SiVercel, colorClass: "text-foreground" },
+      { name: "Render", icon: SiRender, colorClass: "text-foreground" },
       { name: "VS Code", icon: VscVscode, colorClass: "text-blue-600" },
     ],
   },
@@ -38,6 +43,7 @@ const skillCategories = [
     skills: [
       { name: "Python", icon: FaPython, colorClass: "text-blue-500" },
       { name: "Java", icon: FaJava, colorClass: "text-red-500" },
+      { name: "JavaScript", icon: SiJavascript, colorClass: "text-yellow-400" },
       { name: "FastAPI", icon: SiFastapi, colorClass: "text-teal-500" },
       { name: "Django", icon: SiDjango, colorClass: "text-emerald-900" },
     ],
@@ -49,12 +55,14 @@ const skillCategories = [
       { name: "PostgreSQL", icon: SiPostgresql, colorClass: "text-blue-600" },
       { name: "MySQL", icon: SiMysql, colorClass: "text-blue-400" },
       { name: "Postman", icon: SiPostman, colorClass: "text-orange-500" },
+      { name: "Swagger", icon: SiSwagger, colorClass: "text-lime-400" },
     ],
   },
   {
     title: "Tools & AI",
     skills: [
       { name: "Hugging Face", icon: SiHuggingface, colorClass: "text-yellow-400" },
+      { name: "Dialogflow ES", icon: SiDialogflow, colorClass: "text-orange-500" },
       { name: "Git", icon: FaGitAlt, colorClass: "text-orange-600" },
       { name: "GitHub", icon: FaGithub, colorClass: "text-neutral-800 dark:text-neutral-100" },
       { name: "Docker", icon: FaDocker, colorClass: "text-blue-500" },
@@ -81,7 +89,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative flex md:min-h-screen flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
+      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div
@@ -127,10 +135,10 @@ export default function Skills() {
                       key={skill.name}
                       variants={item}
                       whileHover={{ scale: 1.1, translateY: -5 }}
-                      className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/50 hover:shadow-lg w-28 h-28"
+                      className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card p-3 shadow-sm transition-colors hover:border-primary/50 hover:shadow-lg w-24 h-24"
                     >
                       <Icon
-                        className={`h-8 w-8 transition-colors ${skill.colorClass}`}
+                        className={`h-7 w-7 transition-colors ${skill.colorClass}`}
                       />
                       <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground text-center">
                         {skill.name}

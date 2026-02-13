@@ -96,7 +96,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex md:min-h-screen flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
+      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div

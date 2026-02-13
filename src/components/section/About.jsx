@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex md:min-h-screen flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
+      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div
@@ -75,14 +75,14 @@ export default function About() {
           >
             <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-tr from-primary/20 via-primary/10 to-transparent p-1">
                <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
-               <div className="h-full w-full overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 p-6 flex flex-col gap-4">
+               <div className="h-full w-full overflow-hidden rounded-xl bg-card/80 backdrop-blur-sm border border-white/10 p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
                   <div className="flex items-center gap-2 border-b border-border/50 pb-4">
                     <div className="h-3 w-3 rounded-full bg-red-500" />
                     <div className="h-3 w-3 rounded-full bg-yellow-500" />
                     <div className="h-3 w-3 rounded-full bg-green-500" />
-                    <span className="ml-2 text-xs font-mono text-muted-foreground">developer.config</span>
+                    <span className="ml-2 text-[10px] sm:text-xs font-mono text-muted-foreground">developer.config</span>
                   </div>
-                  <div className="space-y-3 font-mono text-sm">
+                  <div className="space-y-2 sm:space-y-3 font-mono text-[11px] sm:text-sm">
                     <div className="flex gap-2">
                        <span className="text-pink-500">const</span>
                        <span className="text-blue-500">profile</span>

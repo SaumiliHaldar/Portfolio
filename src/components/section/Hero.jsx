@@ -15,7 +15,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative md:min-h-screen flex flex-col md:flex-row items-center justify-between px-4 py-20 md:px-12 md:py-32 gap-12 overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-screen flex flex-col md:flex-row items-center justify-between px-4 py-20 md:px-12 md:py-32 gap-12 overflow-hidden">
       {/* Mobile Image (Moved to Top) */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
