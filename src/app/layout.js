@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar";
+import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
 import Footer from "@/components/layout/Footer";
 
@@ -27,9 +27,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground flex min-h-screen`}
       >
-        <Sidebar />
+        <Navbar />
         <MobileNav />
-        <main className="flex-1 w-full lg:pl-64 flex flex-col min-h-screen">
+        <main className="flex-1 w-full flex flex-col min-h-screen pt-24">
           <div className="flex-1">{children}</div>
           <Footer />
         </main>

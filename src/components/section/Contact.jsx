@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, X } from "lucide-react";
+import { Mail, MapPin, Phone, CheckCircle2, AlertCircle, X } from "lucide-react";
 
 // Themed Toaster Component
 const Toast = ({ message, type, onClose }) => {
@@ -96,7 +96,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
+      className="relative flex min-h-[50vh] md:min-h-[70vh] flex-col items-center justify-center py-20 md:py-32 bg-secondary/20 overflow-hidden"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div
@@ -106,9 +106,6 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="mb-16 flex flex-col items-center text-center"
         >
-          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <Mail className="h-6 w-6" />
-          </div>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Get in Touch
           </h2>
@@ -242,7 +239,6 @@ export default function Contact() {
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                    {status === "submitting" ? "Sending..." : "Send Message"}
-                   <Send className="ml-2 h-4 w-4" />
                 </button>
              </form>
           </motion.div>

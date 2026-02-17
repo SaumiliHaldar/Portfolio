@@ -23,7 +23,7 @@ export default function Footer() {
     e.preventDefault();
     const element = id ? document.getElementById(id) : null;
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.scrollIntoView({ behavior: "smooth" });
       window.history.pushState(null, "", `#${id}`);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-border bg-background py-12 px-6 lg:hidden">
+    <footer className="w-full border-t border-border bg-background py-12 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           {/* Logo/Name & Copyright */}

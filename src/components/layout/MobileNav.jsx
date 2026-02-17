@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen } from "lucide-react";
+import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen, CircleUserRound } from "lucide-react";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 
@@ -23,7 +23,7 @@ export default function MobileNav() {
     setIsOpen(false);
     const element = id ? document.getElementById(id) : null;
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.scrollIntoView({ behavior: "smooth" });
       window.history.pushState(null, "", `#${id}`);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -32,13 +32,27 @@ export default function MobileNav() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50 lg:hidden">
-      <button
-        onClick={() => setIsOpen(true)}
-        className="rounded-full bg-background/80 p-2 text-foreground backdrop-blur-md border border-border shadow-md"
-      >
-        <Menu className="h-6 w-6" />
-      </button>
+    <div className="lg:hidden">
+      {/* Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border">
+        {/* Logo/Name */}
+        <div className="flex items-center gap-3">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-primary/20">
+            <CircleUserRound className="h-full w-full object-cover text-primary" />
+          </div>
+          <div className="flex flex-col text-left">
+            <h1 className="text-xl font-bold leading-none">Saumili</h1>
+          </div>
+        </div>
+
+        {/* Hamburger Menu Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="p-2 text-foreground hover:bg-muted rounded-full transition-colors"
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+      </div>
 
       <AnimatePresence>
         {isOpen && (
@@ -58,33 +72,16 @@ export default function MobileNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
-              className="fixed right-0 top-0 z-50 h-full w-3/4 max-w-sm bg-sidebar border-l border-sidebar-border p-6 shadow-xl text-sidebar-foreground"
+              className="fixed right-0 top-0 z-50 h-full w-3/4 max-w-sm bg-sidebar border-l border-sidebar-border p-4 shadow-xl text-sidebar-foreground"
             >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-primary/20">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute right-4 top-4 z-50 rounded-full p-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              >
+                <X className="h-6 w-6" />
+              </button>
 
-                    <img
-                      src="/logo.avif"
-                      alt="Saumili Haldar"
-                      className="h-full w-full object-cover rotate"
-                    />
-                  </div>
-
-                  <div className="flex flex-col text-left">
-                    <h1 className="text-base font-bold leading-none">Saumili Haldar</h1>
-                    <p className="text-[12px] text-muted-foreground mt-1">Software Developer</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-full p-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-2">
                 {navItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeSection === item.id;

@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Sparkles } from "lucide-react";
+import { Code, Sparkles } from "lucide-react";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
+      className="relative flex min-h-[50vh] md:min-h-[70vh] flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div
@@ -17,9 +17,6 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mb-12 flex flex-col items-center text-center"
         >
-          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <User className="h-6 w-6" />
-          </div>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             About Me
           </h2>
@@ -113,7 +110,7 @@ export default function About() {
             </div>
             
              {/* Decorative Elements */}
-            <div className="absolute -bottom-6 -left-6 -z-10 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
+            <div className="absolute -bottom-6 -left-6 -z-10 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
             <div className="absolute -top-6 -right-6 -z-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
           </motion.div>
         </div>
