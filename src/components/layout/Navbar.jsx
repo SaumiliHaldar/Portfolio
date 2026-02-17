@@ -39,14 +39,18 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 hidden lg:flex items-center justify-between px-8 py-4 bg-background/80 backdrop-blur-md border-b border-border">
       {/* Logo/Name */}
-      <div className="flex items-center gap-3">
+      <a 
+        href="/" 
+        onClick={(e) => handleNavClick(e, "")}
+        className="flex items-center gap-3 transition-opacity hover:opacity-80"
+      >
         <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-primary/20">
             <CircleUserRound className="h-full w-full object-cover text-primary" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-xl font-bold">Saumili</h1>
         </div>
-      </div>
+      </a>
 
       {/* Navigation Items */}
       <div className="flex items-center gap-1">

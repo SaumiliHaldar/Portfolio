@@ -36,14 +36,18 @@ export default function MobileNav() {
       {/* Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border">
         {/* Logo/Name */}
-        <div className="flex items-center gap-3">
+        <a 
+          href="/" 
+          onClick={(e) => handleNavClick(e, "")}
+          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+        >
           <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-primary/20">
             <CircleUserRound className="h-full w-full object-cover text-primary" />
           </div>
           <div className="flex flex-col text-left">
             <h1 className="text-xl font-bold leading-none">Saumili</h1>
           </div>
-        </div>
+        </a>
 
         {/* Hamburger Menu Button */}
         <button
