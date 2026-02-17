@@ -49,7 +49,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Software Developer & Machine Learning Enthusiast
+            Software Developer | CS Graduate '25
           </motion.h2>
 
           <motion.p
@@ -58,12 +58,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-muted-foreground leading-relaxed"
           >
-            I am a Computer Science and Engineering graduate with hands-on experience in 
-            <span className="font-semibold text-foreground"> Python</span>, 
-            <span className="font-semibold text-foreground"> Machine Learning</span>, and 
-            <span className="font-semibold text-foreground"> Scalable API Design</span>. 
-            Currently working at <span className="text-primary">RS Consultancy</span>, 
-            building robust software solutions.
+            A passionate <span className="font-semibold text-foreground">Software Developer</span> at <span className="text-primary font-semibold">RS Consultancy</span> specializing in scalable web applications and REST APIs. 
+            Proficient in <span className="font-semibold text-foreground">Python, FastAPI, React.js, and Next.js</span>, I leverage modern technologies to engineer robust solutions with a focus on 
+            <span className="font-semibold text-foreground"> clean, maintainable code</span>.
           </motion.p>
 
           <motion.div
