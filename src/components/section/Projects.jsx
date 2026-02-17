@@ -62,7 +62,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative flex min-h-[50vh] md:min-h-[70vh] flex-col items-center justify-center py-20 md:py-32 overflow-hidden"
+      className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 overflow-hidden"
     >
       <div className="z-10 w-full max-w-7xl px-4 md:px-6">
         <motion.div
