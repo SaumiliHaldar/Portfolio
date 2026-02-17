@@ -58,7 +58,7 @@ export default function Navbar() {
                  key={item.name}
                  href={item.href}
                  onClick={(e) => handleNavClick(e, item.id)}
-                 className={`group flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:bg-primary/10 hover:text-primary ${
+                 className={`group flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:text-primary ${
                    isActive ? "text-primary bg-primary/10" : "text-muted-foreground"
                  }`}
                >

@@ -90,11 +90,11 @@ export default function MobileNav() {
                       key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.id)}
-                      className={`group flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground ${
-                        isActive ? "text-white" : "text-muted-foreground"
+                      className={`group flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:text-primary ${
+                        isActive ? "text-primary bg-primary/10" : "text-muted-foreground"
                       }`}
                     >
-                      <Icon className={`h-5 w-5 transition-colors ${isActive ? "text-white" : "group-hover:text-primary"}`} />
+                      <Icon className={`h-5 w-5 transition-colors ${isActive ? "text-primary" : "group-hover:text-primary"}`} />
                       {item.name}
                     </a>
                   );
