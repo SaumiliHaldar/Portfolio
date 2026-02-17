@@ -88,7 +88,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 bg-secondary/20 overflow-hidden"
+      className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 bg-secondary/20 overflow-hidden scroll-mt-20"
     >
       <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div

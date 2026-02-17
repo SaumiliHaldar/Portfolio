@@ -7,7 +7,7 @@ import { ArrowBigDownDash, Download, Github, Rocket } from "lucide-react";
 export default function Hero() {
 
   return (
-    <section className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 overflow-hidden">
+    <section className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
       
       <div className="z-10 w-full max-w-6xl px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Mobile Image (Moved to Top) */}

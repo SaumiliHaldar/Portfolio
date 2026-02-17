@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
 import Footer from "@/components/layout/Footer";
 import CursorSpotlight from "@/components/ui/CursorSpotlight";
+import BackgroundAnimations from "@/components/ui/BackgroundAnimations";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +27,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground flex min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground flex min-h-screen relative`}
       >
+        <BackgroundAnimations />
         <CursorSpotlight />
         <Navbar />
         <MobileNav />
-        <main className="flex-1 w-full flex flex-col min-h-screen pt-24">
+        <main className="flex-1 w-full flex flex-col min-h-screen">
           <div className="flex-1">{children}</div>
           <Footer />
         </main>
