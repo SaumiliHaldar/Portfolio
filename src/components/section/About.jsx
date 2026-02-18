@@ -36,18 +36,11 @@ export default function About() {
               Passionate Developer & Lifelong Learner
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm Saumili Haldar, a dedicated software developer with a strong
-              foundation in Computer Science. My journey in tech is driven by a
-              curiosity to understand how things work and a passion for building
-              impactful solutions.
+              I'm Saumili Haldar, a <span className="text-foreground font-medium">Computer Science & Engineering</span> graduate (Class of 2025) currently working as a <span className="text-primary font-medium">Software Developer</span> at <span className="text-foreground font-medium">RS Consultancy</span>. I specialize in building scalable web applications and high-performance REST APIs.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With expertise in <span className="text-primary font-medium">Python</span>, 
-              <span className="text-primary font-medium"> Machine Learning</span>, and 
-              <span className="text-primary font-medium"> Full Stack Development</span>, 
-              I enjoy tackling complex problems and turning ideas into reality. 
-              Currently, I'm focused on creating scalable applications and exploring 
-              the frontiers of AI at <span className="text-foreground font-medium">RS Consultancy</span>.
+              With a strong foundation in <span className="text-primary font-medium">Python, FastAPI, React, and Next.js</span>, I am dedicated to writing clean, maintainable code. 
+              I leverage modern tools like <span className="text-foreground font-medium">Docker</span> and databases such as <span className="text-primary font-medium">MongoDB and PostgreSQL</span> to deliver robust, high-quality software solutions.
             </p>
             
             <div className="grid grid-cols-2 gap-4 pt-4">

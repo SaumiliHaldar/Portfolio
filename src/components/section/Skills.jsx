@@ -5,9 +5,10 @@ import {
   FaPython,
   FaJava,
   FaReact,
-  FaDocker,
   FaGithub,
   FaGitAlt,
+  FaHtml5,
+  FaCss3Alt,
 } from "react-icons/fa";
 import {
   SiFastapi,
@@ -22,129 +23,186 @@ import {
   SiJavascript,
   SiSwagger,
   SiDialogflow,
+  SiTypescript,
+  SiTailwindcss,
+  SiNextdotjs,
 } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-import { RiNextjsFill } from "react-icons/ri";
+import { BiCodeBlock, BiData, BiServer, BiGlobe, BiTerminal } from "react-icons/bi";
 
 const skillCategories = [
   {
-    title: "Frontend & Deployment",
-    skills: [
-      { name: "React", icon: FaReact, colorClass: "text-sky-400" },
-      { name: "Next.js", icon: RiNextjsFill, colorClass: "text-foreground" },
-      { name: "Vercel", icon: SiVercel, colorClass: "text-foreground" },
-      { name: "Render", icon: SiRender, colorClass: "text-foreground" },
-      { name: "VS Code", icon: VscVscode, colorClass: "text-blue-600" },
-    ],
-  },
-  {
-    title: "Backend Development",
+    title: "Languages",
+    icon: BiCodeBlock,
+    class: "lg:col-span-2",
     skills: [
       { name: "Python", icon: FaPython, colorClass: "text-blue-500" },
       { name: "Java", icon: FaJava, colorClass: "text-red-500" },
       { name: "JavaScript", icon: SiJavascript, colorClass: "text-yellow-400" },
-      { name: "FastAPI", icon: SiFastapi, colorClass: "text-teal-500" },
-      { name: "Django", icon: SiDjango, colorClass: "text-emerald-900" },
+      { name: "TypeScript", icon: SiTypescript, colorClass: "text-blue-600" },
     ],
   },
   {
-    title: "Databases & API",
+    title: "Frontend Development",
+    icon: BiGlobe,
+    class: "lg:col-span-1",
     skills: [
-      { name: "MongoDB", icon: SiMongodb, colorClass: "text-green-600" },
+      { name: "HTML5", icon: FaHtml5, colorClass: "text-orange-600" },
+      { name: "CSS3", icon: FaCss3Alt, colorClass: "text-blue-500" },
+      { name: "React.js", icon: FaReact, colorClass: "text-cyan-400" },
+      { name: "Next.js", icon: SiNextdotjs, colorClass: "text-foreground" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, colorClass: "text-cyan-500" },
+    ],
+  },
+  {
+    title: "Database & Deployment",
+    icon: BiData,
+    class: "lg:col-span-2",
+    skills: [
+      { name: "MongoDB", icon: SiMongodb, colorClass: "text-green-500" },
       { name: "PostgreSQL", icon: SiPostgresql, colorClass: "text-blue-600" },
       { name: "MySQL", icon: SiMysql, colorClass: "text-blue-400" },
+      { name: "Vercel", icon: SiVercel, colorClass: "text-foreground" },
+      { name: "Render", icon: SiRender, colorClass: "text-foreground" },
+    ],
+  },
+  {
+    title: "Backend & API",
+    icon: BiServer,
+    class: "lg:col-span-1",
+    skills: [
+      { name: "FastAPI", icon: SiFastapi, colorClass: "text-teal-500" },
+      { name: "Django", icon: SiDjango, colorClass: "text-emerald-900" },
       { name: "Postman", icon: SiPostman, colorClass: "text-orange-500" },
-      { name: "Swagger", icon: SiSwagger, colorClass: "text-lime-400" },
+      { name: "Swagger", icon: SiSwagger, colorClass: "text-lime-500" },
     ],
   },
   {
     title: "Tools & AI",
+    icon: BiTerminal,
+    class: "lg:col-span-3",
     skills: [
+      { name: "Git", icon: FaGitAlt, colorClass: "text-orange-600" },
+      { name: "GitHub", icon: FaGithub, colorClass: "text-foreground" },
       { name: "Hugging Face", icon: SiHuggingface, colorClass: "text-yellow-400" },
       { name: "Dialogflow ES", icon: SiDialogflow, colorClass: "text-orange-500" },
-      { name: "Git", icon: FaGitAlt, colorClass: "text-orange-600" },
-      { name: "GitHub", icon: FaGithub, colorClass: "text-neutral-800 dark:text-neutral-100" },
-      { name: "Docker", icon: FaDocker, colorClass: "text-blue-500" },
     ],
   },
 ];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, scale: 0.8 },
-  show: { opacity: 1, scale: 1 },
-};
 
 export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 bg-secondary/20 overflow-hidden scroll-mt-20"
+      className="relative flex min-h-fit flex-col items-center justify-center py-10 md:py-16 bg-secondary/5 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
+      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex flex-col items-center text-center"
+          className="mb-8 md:mb-12 flex flex-col items-center text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Technical Skills
           </h2>
           <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col gap-6"
-            >
-              <h3 className="text-xl font-semibold text-center text-foreground">
-                {category.title}
-              </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {skillCategories.map((category, index) => {
+            const CategoryIcon = category.icon;
+
+            let spanClass = "";
+            let innerGridClass = "grid-cols-3 sm:grid-cols-4"; // Default inner grid
+
+            // Adjusted logic based on User's resize (Database=Wide, Tools=Small)
+            if (index === 0) { // Languages (2x1)
+              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/40";
+              innerGridClass = "grid-cols-4 sm:grid-cols-4 gap-4";
+            }
+            else if (index === 1) { // Frontend (2x1)
+              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
+              innerGridClass = "grid-cols-4 sm:grid-cols-5 gap-3";
+            }
+            else if (index === 2) { // Database (2x1) - Wide now
+              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
+              innerGridClass = "grid-cols-4 sm:grid-cols-5 gap-3";
+            }
+            else if (index === 3) { // Backend (1x1) - Small
+              spanClass = "lg:col-span-1 lg:row-span-1 bg-card/20";
+              innerGridClass = "grid-cols-2 gap-3";
+            }
+            else if (index === 4) { // Tools (1x1) - Small now
+              spanClass = "lg:col-span-1 lg:row-span-1 bg-card/30";
+              innerGridClass = "grid-cols-2 gap-3";
+            }
+
+            return (
               <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="show"
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-wrap justify-center gap-4"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className={`
+                        relative group flex flex-col gap-4 p-5 rounded-2xl
+                        backdrop-blur-md border border-white/5 dark:border-white/5
+                        hover:border-primary/20 hover:bg-card/60 transition-all duration-500
+                        overflow-hidden
+                        ${spanClass}
+                    `}
               >
-                {category.skills.map((skill) => {
-                  const Icon = skill.icon;
-                  return (
-                    <motion.div
-                      key={skill.name}
-                      variants={item}
-                      whileHover={{ scale: 1.1, translateY: -5 }}
-                      className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card p-3 shadow-sm transition-colors hover:border-primary/50 hover:shadow-lg w-24 h-24"
-                    >
-                      <Icon
-                        className={`h-7 w-7 transition-colors ${skill.colorClass}`}
-                      />
-                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground text-center">
-                        {skill.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+                    backgroundSize: '24px 24px'
+                  }}
+                />
+
+                {/* Gradient Bloom */}
+                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/10 blur-[40px] group-hover:bg-primary/20 transition-all duration-500" />
+
+                <div className="relative z-10 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary ring-1 ring-primary/20">
+                      {CategoryIcon && <CategoryIcon className="text-base" />}
+                    </div>
+                    <h3 className="text-base font-bold text-foreground/90 tracking-wide">
+                      {category.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className={`grid ${innerGridClass} relative z-10 w-full pt-1`}>
+                  {category.skills.map((skill) => {
+                    const Icon = skill.icon;
+                    return (
+                      <motion.div
+                        key={skill.name}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        className="group/icon flex flex-col items-center gap-2 cursor-pointer"
+                      >
+                        <div className={`
+                                        flex items-center justify-center 
+                                        h-10 w-10 sm:h-12 sm:w-12 rounded-xl 
+                                        bg-background/40 border border-white/10 shadow-sm
+                                        group-hover/icon:bg-background/60 group-hover/icon:border-primary/30 group-hover/icon:shadow-md 
+                                        transition-all duration-300
+                                     `}>
+                          <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${skill.colorClass} opacity-90 group-hover/icon:opacity-100 transition-opacity`} />
+                        </div>
+                        <span className="text-[10px] sm:text-xs font-medium text-muted-foreground group-hover/icon:text-foreground text-center line-clamp-1">
+                          {skill.name}
+                        </span>
+                      </motion.div>
+                    )
+                  })}
+                </div>
               </motion.div>
-            </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

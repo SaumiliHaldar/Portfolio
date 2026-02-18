@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FileCode, Hash, Database, Globe, Cpu, Server, Layers, Command } from "lucide-react";
+import { FileCode, Database, Globe, Cpu, Server, Layers, Command } from "lucide-react";
 
 export default function BackgroundAnimations() {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +15,7 @@ export default function BackgroundAnimations() {
 
   // Icons relevant to a full-stack developer / software engineer
   const icons = [
-    FileCode, Hash, Database, Globe, Cpu, Server, Layers, Command
+    FileCode, Database, Globe, Cpu, Server, Layers, Command
   ];
 
   // Generate random positions and animation parameters

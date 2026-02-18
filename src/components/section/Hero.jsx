@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowBigDownDash, Download, Github, Rocket } from "lucide-react";
+import { Download, Rocket } from "lucide-react";
 
 
 export default function Hero() {
@@ -49,7 +49,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Software Developer | CS Graduate '25
+            Software Developer
           </motion.h2>
 
           <motion.p
@@ -58,9 +58,10 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-muted-foreground leading-relaxed"
           >
-            A passionate <span className="font-semibold text-foreground">Software Developer</span> at <span className="text-primary font-semibold">RS Consultancy</span> specializing in scalable web applications and REST APIs. 
-            Proficient in <span className="font-semibold text-foreground">Python, FastAPI, React.js, and Next.js</span>, I leverage modern technologies to engineer robust solutions with a focus on 
-            <span className="font-semibold text-foreground"> clean, maintainable code</span>.
+            A passionate <span className="text-primary font-semibold">Software Developer</span> at <span className="text-primary font-semibold">RS Consultancy</span>. 
+            Experienced in <span className="font-semibold text-foreground">Python, FastAPI, React.js, and Next.js</span>, I specialize in building scalable applications, REST APIs, and responsive interfaces. 
+            Proficient with databases including <span className="font-semibold text-foreground">MongoDB and PostgreSQL</span>, 
+            I am committed to writing clean, maintainable code and delivering high-quality solutions.
           </motion.p>
 
           <motion.div
