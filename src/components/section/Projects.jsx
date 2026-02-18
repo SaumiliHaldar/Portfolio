@@ -148,7 +148,7 @@ export default function Projects() {
                 <h3 className="text-lg font-bold text-card-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-2 flex-1 text-xs text-muted-foreground line-clamp-4">
+                <p className="mt-2 flex-1 text-xs text-muted-foreground">
                   {project.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-1.5 justify-start">
