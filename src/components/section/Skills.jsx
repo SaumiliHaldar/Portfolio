@@ -114,28 +114,28 @@ export default function Skills() {
             const CategoryIcon = category.icon;
 
             let spanClass = "";
-            let innerGridClass = "grid-cols-3 sm:grid-cols-4"; // Default inner grid
+            let layoutClass = "grid grid-cols-3 sm:grid-cols-4"; // Default layout
 
             // Adjusted logic based on User's resize (Database=Wide, Tools=Small)
             if (index === 0) { // Languages (2x1)
               spanClass = "lg:col-span-2 lg:row-span-1 bg-card/40";
-              innerGridClass = "grid-cols-4 sm:grid-cols-4 gap-4";
+              layoutClass = "grid grid-cols-4 sm:grid-cols-4 gap-4";
             }
             else if (index === 1) { // Frontend (2x1)
               spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
-              innerGridClass = "grid-cols-4 sm:grid-cols-5 gap-3";
+              layoutClass = "grid grid-cols-4 sm:grid-cols-5 gap-3";
             }
             else if (index === 2) { // Database (2x1) - Wide now
               spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
-              innerGridClass = "grid-cols-4 sm:grid-cols-5 gap-3";
+              layoutClass = "grid grid-cols-4 sm:grid-cols-5 gap-3";
             }
             else if (index === 3) { // Backend (1x1) - Small
               spanClass = "lg:col-span-1 lg:row-span-1 bg-card/20";
-              innerGridClass = "grid-cols-2 gap-3";
+              layoutClass = "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3";
             }
             else if (index === 4) { // Tools (1x1) - Small now
               spanClass = "lg:col-span-1 lg:row-span-1 bg-card/30";
-              innerGridClass = "grid-cols-2 gap-3";
+              layoutClass = "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3";
             }
 
             return (
@@ -175,7 +175,7 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className={`grid ${innerGridClass} relative z-10 w-full pt-1`}>
+                <div className={`${layoutClass} relative z-10 w-full pt-1`}>
                   {category.skills.map((skill) => {
                     const Icon = skill.icon;
                     return (
@@ -193,7 +193,7 @@ export default function Skills() {
                                      `}>
                           <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${skill.colorClass} opacity-90 group-hover/icon:opacity-100 transition-opacity`} />
                         </div>
-                        <span className="text-[10px] sm:text-xs font-medium text-muted-foreground group-hover/icon:text-foreground text-center line-clamp-1">
+                        <span className="text-[10px] sm:text-xs font-medium text-muted-foreground group-hover/icon:text-foreground text-center line-clamp-none">
                           {skill.name}
                         </span>
                       </motion.div>

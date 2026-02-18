@@ -40,7 +40,7 @@ export default function About() {
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               With a strong foundation in <span className="text-primary font-medium">Python, FastAPI, React, and Next.js</span>, I am dedicated to writing clean, maintainable code. 
-              I leverage modern tools like <span className="text-foreground font-medium">Docker</span> and databases such as <span className="text-primary font-medium">MongoDB and PostgreSQL</span> to deliver robust, high-quality software solutions.
+              I leverage databases such as <span className="text-primary font-medium">MongoDB and PostgreSQL</span> to deliver robust, high-quality software solutions.
             </p>
             
             <div className="grid grid-cols-2 gap-4 pt-4">
