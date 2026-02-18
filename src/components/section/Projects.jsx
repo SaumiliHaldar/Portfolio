@@ -64,23 +64,43 @@ export default function Projects() {
       id="projects"
       className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 flex flex-col items-center text-center"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Featured Projects
-          </h2>
-          <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            A selection of projects that showcase my skills in problem-solving and
-            software development.
-          </p>
-        </motion.div>
+      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-start text-left"
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
+              Featured Projects
+            </h2>
+            <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              A selection of projects that showcase my skills in problem-solving and
+              software development.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="hidden sm:block"
+          >
+            <a
+              href="https://github.com/SaumiliHaldar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              <FolderOpen className="h-4 w-4" />
+              View All
+            </a>
+          </motion.div>
+        </div>
 
         <motion.div
           variants={container}
@@ -96,8 +116,8 @@ export default function Projects() {
               className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 h-full"
             >
               <div className="relative h-48 w-full overflow-hidden bg-muted">
-                 {/*  Use next/image for production, standard img for easy URL usage in demo */}
-                 <img
+                {/*  Use next/image for production, standard img for easy URL usage in demo */}
+                <img
                   src={project.image}
                   alt={project.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -123,15 +143,15 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-              
-              <div className="flex flex-1 flex-col p-5 items-center text-center">
+
+              <div className="flex flex-1 flex-col p-5 items-start text-left">
                 <h3 className="text-lg font-bold text-card-foreground">
                   {project.title}
                 </h3>
                 <p className="mt-2 flex-1 text-xs text-muted-foreground line-clamp-4">
                   {project.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-1.5 justify-center">
+                <div className="mt-4 flex flex-wrap gap-1.5 justify-start">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -167,23 +187,23 @@ export default function Projects() {
             </motion.div>
           ))}
         </motion.div>
-        
+
         <motion.div
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
-           viewport={{ once: true }}
-           transition={{ delay: 0.6 }}
-           className="mt-12 flex justify-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 flex justify-center sm:hidden"
         >
-           <a
-             href="https://github.com/SaumiliHaldar"
-             target="_blank"
-             rel="noopener noreferrer"
-             className="flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-           >
-              <FolderOpen className="h-4 w-4" />
-              View All Projects on GitHub
-           </a>
+          <a
+            href="https://github.com/SaumiliHaldar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            <FolderOpen className="h-4 w-4" />
+            View All on GitHub
+          </a>
         </motion.div>
       </div>
     </section>

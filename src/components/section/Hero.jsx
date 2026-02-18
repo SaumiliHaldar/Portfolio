@@ -32,7 +32,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="w-full max-w-2xl text-center md:text-left">
+        <div className="w-full max-w-2xl text-left">
           <motion.h1 
             className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export default function Hero() {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.5, delay: 0.4 }}
-             className="mt-8 flex flex-wrap justify-center md:justify-start gap-4"
+             className="mt-8 flex flex-wrap justify-start gap-4"
           >
             <motion.a
               href="https://github.com/SaumiliHaldar"

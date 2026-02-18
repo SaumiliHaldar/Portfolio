@@ -15,9 +15,9 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-start"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
             About Me
           </h2>
           <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
@@ -30,7 +30,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col justify-center space-y-6 text-center lg:text-left"
+            className="flex flex-col justify-center space-y-6 text-left"
           >
             <h3 className="text-2xl font-semibold text-foreground">
               Passionate Developer & Lifelong Learner
@@ -44,11 +44,11 @@ export default function About() {
             </p>
             
             <div className="grid grid-cols-2 gap-4 pt-4">
-               <div className="flex items-center justify-center gap-3 rounded-lg border border-border p-4 bg-card/50">
+               <div className="flex items-center justify-start gap-3 rounded-lg border border-border p-4 bg-card/50">
                   <Code className="h-5 w-5 text-primary" />
                   <span className="text-sm font-medium">Clean Code</span>
                </div>
-               <div className="flex items-center justify-center gap-3 rounded-lg border border-border p-4 bg-card/50">
+               <div className="flex items-center justify-start gap-3 rounded-lg border border-border p-4 bg-card/50">
                   <Sparkles className="h-5 w-5 text-primary" />
                   <span className="text-sm font-medium">Modern UI/UX</span>
                </div>

@@ -95,15 +95,15 @@ export default function Skills() {
       id="skills"
       className="relative flex min-h-fit flex-col items-center justify-center py-10 md:py-16 bg-secondary/5 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
+      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-8 md:mb-12 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-start"
         >
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
             Technical Skills
           </h2>
           <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
