@@ -1,6 +1,6 @@
 "use client";
 
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail, ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
   { icon: Mail, href: "mailto:haldar.saumili843@gmail.com", label: "Email" },
@@ -24,10 +24,8 @@ export default function Footer() {
     const element = id ? document.getElementById(id) : null;
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `#${id}`);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", "/");
     }
   };
 
@@ -57,23 +55,39 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Social Links for Mobile Visibility */}
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social, idx) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
-                  aria-label={social.label}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              );
-            })}
+          {/* Social Links & Top Button */}
+          <div className="flex flex-col items-center gap-6 sm:flex-row">
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social, idx) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+                    aria-label={social.label}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Top Button */}
+            <button
+              onClick={(e) => handleNavClick(e, "")}
+              className="group flex items-center gap-3 rounded-full border border-border bg-secondary/50 py-1.5 pr-1.5 pl-6 transition-all hover:border-primary/50 hover:bg-primary/5"
+            >
+              <span className="text-[10px] font-bold tracking-[0.3em] text-foreground uppercase">
+                Top
+              </span>
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground text-background transition-transform md:group-hover:-rotate-45">
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </button>
           </div>
         </div>
       </div>

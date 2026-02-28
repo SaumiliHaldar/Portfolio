@@ -24,10 +24,8 @@ export default function MobileNav() {
     const element = id ? document.getElementById(id) : null;
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `#${id}`);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", "/");
     }
   };
 
