@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen, CircleUserRound } from "lucide-react";
+import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen } from "lucide-react";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 
@@ -39,8 +39,8 @@ export default function MobileNav() {
           onClick={(e) => handleNavClick(e, "")}
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
         >
-          <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-primary/20">
-            <CircleUserRound className="h-full w-full object-cover text-primary" />
+          <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-primary/20">
+            <img src="/Saumili.jpg" alt="Saumili" className="h-full w-full object-cover" />
           </div>
           <div className="flex flex-col text-left">
             <h1 className="text-xl font-bold leading-none">Saumili</h1>

@@ -124,6 +124,41 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Scroll Down Indicator */}
+      <motion.div
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center justify-center cursor-pointer z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        onClick={() => {
+          const aboutSection = document.getElementById('about') || document.querySelector('section:nth-of-type(2)');
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+          }
+        }}
+        whileHover={{ scale: 1.1 }}
+      >
+        <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2 hidden sm:block">
+          Scroll Down
+        </span>
+        <div className="w-5 h-8 border-2 border-muted-foreground/50 rounded-full flex justify-center pt-1.5">
+          <motion.div
+            animate={{ 
+              y: [0, 8, 0],
+              opacity: [1, 0.2, 1]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 1.5, 
+              ease: "easeInOut" 
+            }}
+            className="w-1 h-1.5 bg-primary rounded-full"
+          />
+        </div>
+      </motion.div>
+
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
       <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />

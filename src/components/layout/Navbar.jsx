@@ -8,7 +8,6 @@ import {
   BookOpen,
   Download,
   LayoutGrid,
-  CircleUserRound,
 } from "lucide-react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
@@ -42,8 +41,8 @@ export default function Navbar() {
         onClick={(e) => handleNavClick(e, "")}
         className="flex items-center gap-3 transition-opacity hover:opacity-80"
       >
-        <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-primary/20">
-            <CircleUserRound className="h-full w-full object-cover text-primary" />
+        <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-primary/20">
+            <img src="/Saumili.jpg" alt="Saumili" className="h-full w-full object-cover" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-xl font-bold">Saumili</h1>
