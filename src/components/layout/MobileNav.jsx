@@ -1,17 +1,16 @@
 "use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Mail, LayoutGrid, Download, BookOpen } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 const navItems = [
-  { name: "Home", icon: Home, href: "/", id: "" },
-  { name: "About", icon: User, href: "#about", id: "about" },
-  { name: "Skills", icon: BookOpen, href: "#skills", id: "skills" },
-  { name: "Projects", icon: LayoutGrid, href: "#projects", id: "projects" },
-  { name: "Contact", icon: Mail, href: "#contact", id: "contact" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Journey", href: "#experience", id: "experience" },
+  { name: "Skills", href: "#skills", id: "skills" },
+  { name: "Works", href: "#projects", id: "projects" },
+  { name: "Connect", href: "#contact", id: "contact" },
 ];
 
 export default function MobileNav() {
@@ -85,18 +84,14 @@ export default function MobileNav() {
 
               <nav className="flex flex-col gap-2">
                 {navItems.map((item) => {
-                  const Icon = item.icon;
                   const isActive = activeSection === item.id;
                   return (
                     <a
                       key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.id)}
-                      className={`group flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:text-primary ${
-                        isActive ? "text-primary bg-primary/10" : "text-muted-foreground"
-                      }`}
+                      className="group flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors text-muted-foreground hover:text-primary"
                     >
-                      <Icon className={`h-5 w-5 transition-colors ${isActive ? "text-primary" : "group-hover:text-primary"}`} />
                       {item.name}
                     </a>
                   );

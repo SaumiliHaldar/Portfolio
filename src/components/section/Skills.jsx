@@ -95,19 +95,21 @@ export default function Skills() {
       id="skills"
       className="relative flex min-h-fit flex-col items-center justify-center py-10 md:py-16 bg-secondary/5 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 flex flex-col items-start"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
-            Technical Skills
-          </h2>
-          <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
-        </motion.div>
+      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start"
+          >
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl text-left bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text">
+              Technical Skills
+            </h2>
+            <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
+            </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {skillCategories.map((category, index) => {

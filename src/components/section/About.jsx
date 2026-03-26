@@ -9,19 +9,21 @@ export default function About() {
       id="about"
       className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 flex flex-col items-start"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
-            About Me
-          </h2>
-          <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
-        </motion.div>
+      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start"
+          >
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl text-left bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text">
+              About Me
+            </h2>
+            <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
+          </motion.div>
+        </div>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Text Content */}
@@ -36,11 +38,10 @@ export default function About() {
               Passionate Developer & Lifelong Learner
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm Saumili Haldar, a <span className="text-foreground font-medium">Computer Science & Engineering</span> graduate (Class of 2025) currently working as a <span className="text-primary font-medium">Software Developer</span> at <span className="text-foreground font-medium">RS Consultancy</span>. I specialize in building scalable web applications and high-performance REST APIs.
+              I'm Saumili Haldar, a <span className="text-foreground font-medium">Computer Science & Engineering</span> graduate (Class of 2025). My journey evolved from engineering core Python functionalities in e-commerce to architecting complex AI integrations and real-time streaming tools.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With a strong foundation in <span className="text-primary font-medium">Python, FastAPI, React, and Next.js</span>, I am dedicated to writing clean, maintainable code. 
-              I leverage databases such as <span className="text-primary font-medium">MongoDB and PostgreSQL</span> to deliver robust, high-quality software solutions.
+              Currently, I'm working as a <span className="text-primary font-medium">Software Developer</span> at <span className="text-foreground font-medium">RS Consultancy</span>, specializing in robust system design and low-latency MQTT data architectures.
             </p>
             
             <div className="grid grid-cols-2 gap-4 pt-4">
@@ -85,7 +86,7 @@ export default function About() {
                     </div>
                     <div className="pl-4 flex gap-2">
                        <span className="text-foreground">role:</span>
-                       <span className="text-green-500">"Software Developer"</span>,
+                       <span className="text-green-500">"Software Engineer"</span>,
                     </div>
                     <div className="pl-4 flex gap-2">
                        <span className="text-foreground">traits:</span>

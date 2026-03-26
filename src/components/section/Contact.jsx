@@ -97,22 +97,21 @@ export default function Contact() {
       id="contact"
       className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 bg-secondary/20 overflow-hidden scroll-mt-20"
     >
-      <div className="z-10 w-full max-w-6xl px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 flex flex-col items-start"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl text-left">
-            Get in Touch
-          </h2>
-          <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
-          <p className="mt-4 text-left text-muted-foreground">
-            Have a project in mind or just want to say hi? I'd love to hear from you.
-          </p>
-        </motion.div>
+      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start"
+          >
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl text-left bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text">
+              Get in Touch
+            </h2>
+            <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
+            </motion.div>
+        </div>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Contact Info */}

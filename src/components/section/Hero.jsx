@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
       
-      <div className="z-10 w-full max-w-6xl px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="z-10 w-full max-w-7xl px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Mobile Image (Moved to Top) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -34,12 +34,12 @@ export default function Hero() {
 
         <div className="w-full max-w-2xl text-left">
           <motion.h1 
-            className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+            className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0 }}
           >
-            Hi, I'm <br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">Hi, I'm</span> <br className="hidden md:block" />
             <span className="text-primary">Saumili Haldar</span>
           </motion.h1>
           
@@ -58,10 +58,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-muted-foreground leading-relaxed"
           >
-            A passionate <span className="text-primary font-semibold">Software Developer</span> at <span className="text-primary font-semibold">RS Consultancy</span>. 
-            Experienced in <span className="font-semibold text-foreground">Python, FastAPI, React.js, and Next.js</span>, I specialize in building scalable applications, REST APIs, and responsive interfaces. 
-            Proficient with databases including <span className="font-semibold text-foreground">MongoDB and PostgreSQL</span>, 
-            I am committed to writing clean, maintainable code and delivering high-quality solutions.
+            I build <span className="text-primary font-semibold">scalable backend architectures</span>, <span className="font-semibold text-foreground">real-time data pipelines</span>, and <span className="font-semibold text-foreground">AI-driven applications</span> that solve complex engineering problems.
           </motion.p>
 
           <motion.div

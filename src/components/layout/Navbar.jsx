@@ -1,22 +1,15 @@
 "use client";
-
-
 import {
-  Home,
-  User,
-  Mail,
-  BookOpen,
   Download,
-  LayoutGrid,
 } from "lucide-react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 const navItems = [
-  { name: "Home", icon: Home, href: "/", id: "" },
-  { name: "About", icon: User, href: "#about", id: "about" },
-  { name: "Skills", icon: BookOpen, href: "#skills", id: "skills" },
-  { name: "Projects", icon: LayoutGrid, href: "#projects", id: "projects" },
-  { name: "Contact", icon: Mail, href: "#contact", id: "contact" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Journey", href: "#experience", id: "experience" },
+  { name: "Skills", href: "#skills", id: "skills" },
+  { name: "Works", href: "#projects", id: "projects" },
+  { name: "Connect", href: "#contact", id: "contact" },
 ];
 
 
@@ -52,19 +45,18 @@ export default function Navbar() {
       {/* Navigation Items */}
       <div className="flex items-center gap-1">
         {navItems.map((item) => {
-             const Icon = item.icon;
              const isActive = activeSection === item.id;
              return (
                <a
                  key={item.name}
                  href={item.href}
                  onClick={(e) => handleNavClick(e, item.id)}
-                 className={`group flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:text-primary ${
-                   isActive ? "text-primary bg-primary/10" : "text-muted-foreground"
-                 }`}
+                 className="group relative flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all text-muted-foreground hover:text-primary"
                >
-                 <Icon className={`h-4 w-4 ${isActive ? "text-primary" : "group-hover:text-primary"}`} />
-                 {item.name}
+                 <span className="relative">
+                   {item.name}
+                   <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+                 </span>
                </a>
              );
         })}
