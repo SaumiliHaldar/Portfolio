@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Rocket } from "lucide-react";
 
 
 export default function Hero() {
@@ -75,7 +74,6 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90"
             >
-              <Rocket className="h-4 w-4" />
               View my Work
             </motion.a>
             
@@ -85,8 +83,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              <Download className="h-4 w-4" />
+              >
                Download Resume
             </motion.a>
           </motion.div>
