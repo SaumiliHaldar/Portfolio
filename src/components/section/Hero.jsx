@@ -78,7 +78,7 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/Saumili Haldar-Resume.pdf"
+              href="/Saumili-Haldar-Resume.pdf"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

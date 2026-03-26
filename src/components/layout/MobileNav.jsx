@@ -135,7 +135,7 @@ export default function MobileNav() {
                 <div className="w-full border-t border-foreground/5" />
 
                 <a
-                  href="/Saumili Haldar-Resume.pdf"
+                  href="/Saumili-Haldar-Resume.pdf"
                   download
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 text-primary-foreground transition-all duration-300 hover:brightness-105 active:scale-95 shadow-lg shadow-primary/10"
                 >
