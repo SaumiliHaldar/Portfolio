@@ -15,13 +15,16 @@ const navItems = [
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const activeSection = useActiveSection(navItems.map((item) => item.id));
-  const [currentDate, setCurrentDate] = useState("");
+  const [currentDate, setCurrentDate] = useState({ month: "", day: "", year: "" });
 
   useEffect(() => {
     const formatDate = () => {
       const now = new Date();
-      const options = { day: '2-digit', month: 'short', year: '2-digit' };
-      return now.toLocaleDateString('en-GB', options).toUpperCase();
+      return {
+        month: now.toLocaleDateString("en-GB", { month: "short" }).toUpperCase(),
+        day: now.toLocaleDateString("en-GB", { day: "2-digit" }),
+        year: now.toLocaleDateString("en-GB", { year: "numeric" }),
+      };
     };
     setCurrentDate(formatDate());
     const timer = setInterval(() => setCurrentDate(formatDate()), 60000);
@@ -91,7 +94,7 @@ export default function MobileNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z-[70] h-full w-4/5 max-w-sm bg-background border-l border-border/40 p-8 shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 z-[70] h-full w-4/5 max-sm:w-full bg-background border-l border-border/40 p-8 shadow-2xl flex flex-col"
             >
               <div className="flex flex-col items-start gap-11 pointer-events-auto">
                 {/* Row 1: About + Close Button */}
@@ -144,9 +147,15 @@ export default function MobileNav() {
                   </span>
                 </a>
 
-                <div className="flex flex-col items-center gap-1.5">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 uppercase">
-                    {currentDate}
+                <div className="flex items-center gap-1.5 text-xs uppercase">
+                  <span className="font-black tracking-[0.2em] text-primary">
+                    {currentDate.month}
+                  </span>
+                  <span className="font-medium tracking-tight text-foreground">
+                    {currentDate.day},
+                  </span>
+                  <span className="font-extralight tracking-widest text-foreground">
+                    {currentDate.year}
                   </span>
                 </div>
               </div>

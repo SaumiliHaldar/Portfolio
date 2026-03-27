@@ -13,13 +13,16 @@ const navItems = [
 
 export default function Navbar() {
   const activeSection = useActiveSection(navItems.map((item) => item.id));
-  const [currentDate, setCurrentDate] = useState("");
+  const [currentDate, setCurrentDate] = useState({ month: "", day: "", year: "" });
 
   useEffect(() => {
     const formatDate = () => {
       const now = new Date();
-      const options = { day: '2-digit', month: 'short', year: '2-digit' };
-      return now.toLocaleDateString('en-GB', options).toUpperCase();
+      return {
+        month: now.toLocaleDateString("en-GB", { month: "short" }).toUpperCase(),
+        day: now.toLocaleDateString("en-GB", { day: "2-digit" }),
+        year: now.toLocaleDateString("en-GB", { year: "numeric" }),
+      };
     };
     setCurrentDate(formatDate());
     const timer = setInterval(() => setCurrentDate(formatDate()), 60000);
@@ -70,7 +73,7 @@ export default function Navbar() {
                  key={item.name}
                  href={item.href}
                  onClick={(e) => handleNavClick(e, item.id)}
-                 className="group flex items-center text-[10px] font-bold tracking-[0.25em] uppercase transition-all duration-300 text-muted-foreground/70 hover:text-foreground"
+                 className="group flex items-center text-xs font-bold tracking-[0.25em] uppercase transition-all duration-300 text-muted-foreground/70 hover:text-foreground"
                >
                  <span className="relative">
                    {item.name}
@@ -83,9 +86,15 @@ export default function Navbar() {
 
       {/* Right: Technical Info + Actions */}
       <div className="flex items-center justify-end gap-6">
-        <div className="flex flex-col items-end border-r border-foreground/10 pr-6">
-          <span className="text-[9px] font-black tracking-[0.1em] uppercase text-foreground leading-none mb-1">
-            {currentDate}
+        <div className="flex items-center border-r border-foreground/10 pr-6 gap-1.5">
+          <span className="text-xs font-black tracking-[0.2em] text-primary uppercase">
+            {currentDate.month}
+          </span>
+          <span className="text-xs font-medium tracking-tight text-foreground uppercase">
+            {currentDate.day},
+          </span>
+          <span className="text-xs font-extralight tracking-widest text-foreground uppercase">
+            {currentDate.year}
           </span>
         </div>
         
