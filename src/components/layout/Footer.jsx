@@ -49,10 +49,9 @@ export default function Footer() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className="group relative text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 hover:text-foreground transition-all duration-300"
+                className="group relative text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 transition-all duration-300"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>

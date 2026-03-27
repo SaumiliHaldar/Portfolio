@@ -31,7 +31,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative flex min-h-[50vh] flex-col items-center justify-center py-20 overflow-hidden scroll-mt-20 border-t border-border/50"
+      className="relative flex min-h-[50vh] flex-col items-center justify-center py-20 overflow-hidden scroll-mt-20"
     >
       <div className="z-10 w-full max-w-7xl px-4 md:px-6">
         
