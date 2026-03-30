@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, Phone, CheckCircle2, AlertCircle, X } from "lucide-react";
+import { Mail, Linkedin, Phone, CheckCircle2, AlertCircle, X } from "lucide-react";
 
 // Themed Toaster Component
 const Toast = ({ message, type, onClose }) => {
@@ -133,6 +133,18 @@ export default function Contact() {
             <div className="space-y-6 w-full">
               <div className="flex flex-row items-center gap-4 text-left">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Phone</h4>
+                  <a href="tel:+917063737272" className="text-muted-foreground hover:text-primary transition-colors">
+                    +91 7063737272
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-row items-center gap-4 text-left">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
@@ -145,24 +157,12 @@ export default function Contact() {
 
               <div className="flex flex-row items-center gap-4 text-left">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <MapPin className="h-5 w-5" />
+                  <Linkedin className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground">Location</h4>
-                  <p className="text-muted-foreground hover:text-primary transition-colors">
-                    Kolkata, India
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-row items-center gap-4 text-left">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-medium text-foreground">Phone</h4>
-                  <a href="tel:+917063737272" className="text-muted-foreground hover:text-primary transition-colors">
-                    +91 7063737272
+                  <h4 className="font-medium text-foreground">LinkedIn</h4>
+                  <a href="https://www.linkedin.com/in/saumili-haldar-0804s2003" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                    linkedin.com/in/saumili-haldar
                   </a>
                 </div>
               </div>
