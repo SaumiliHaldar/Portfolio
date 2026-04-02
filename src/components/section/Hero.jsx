@@ -55,27 +55,22 @@ export default function Hero() {
             transition={{ ...mechanicalTransition, delay: 0.1 }}
             className="mb-4"
           >
-            <span className="text-2xl md:text-3xl font-medium tracking-tight text-neutral">
+            <span className="text-xl md:text-2xl font-bold font-heading tracking-widest text-neutral-400">
               Hi, I'm
             </span>
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.8] mb-8 text-white uppercase"
+            className="text-5xl md:text-7xl font-black font-heading tracking-tighter leading-[0.85] mb-8 text-white"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...mechanicalTransition, delay: 0.3 }}
           >
-            <span 
-              className="text-primary transition-all hover:italic"
-              style={{ WebkitTextStroke: '1px var(--primary)', color: 'transparent' }}
-            >
-              Saumili Haldar
-            </span>
+            Saumili <span className="text-primary italic">Haldar</span>
           </motion.h1>
 
           <motion.h2
-            className="text-xl md:text-2xl font-bold text-neutral-300 mb-8 tracking-tight"
+            className="text-xl md:text-2xl font-bold font-heading text-neutral-100 italic mb-8 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...mechanicalTransition, delay: 0.4 }}
@@ -84,7 +79,7 @@ export default function Hero() {
           </motion.h2>
 
           <motion.p
-            className="text-base md:text-lg text-neutral-400 font-sans max-w-xl mb-12 leading-relaxed border-l-2 border-primary/30 pl-6"
+            className="text-base md:text-lg text-neutral-400 font-medium max-w-xl mb-12 leading-relaxed border-l-2 border-primary/30 pl-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...mechanicalTransition, delay: 0.5 }}
