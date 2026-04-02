@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github, ExternalLink, FolderOpen } from "lucide-react";
+import { useRef, useMemo } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { Github, ArrowRight, Layers } from "lucide-react";
 
 const projects = [
   {
@@ -12,7 +13,8 @@ const projects = [
     tags: ["FastAPI", "React", "Prisma", "Gemini API"],
     github: "https://github.com/SaumiliHaldar/DevTrackr",
     demo: "https://devtrackrr.vercel.app",
-    image: "/devtrackr.jpg",
+    // image: "/devtrackr.jpg",
+    color: "#1DB954",
   },
   {
     id: "02",
@@ -22,7 +24,8 @@ const projects = [
     tags: ["Next.js", "FastAPI", "MongoDB", "gTTS"],
     github: "https://github.com/SaumiliHaldar/Lysn",
     demo: "https://lysn.vercel.app",
-    image: "/lysn.jpg",
+    // image: "/lysn.jpg",
+    color: "#1ed760",
   },
   {
     id: "03",
@@ -32,7 +35,8 @@ const projects = [
     tags: ["FastAPI", "React", "Gemini", "Redis"],
     github: "https://github.com/SaumiliHaldar/NexGenie",
     demo: "https://nexgenie.vercel.app",
-    image: "/nexgenie.jpg",
+    // image: "/nexgenie.jpg",
+    color: "#19E68C",
   },
   {
     id: "04",
@@ -42,195 +46,163 @@ const projects = [
     tags: ["Django", "Python", "JS", "Weather API"],
     github: "https://github.com/SaumiliHaldar/MausamVibe",
     demo: "https://mausamvibe.onrender.com",
-    image: "/mausamvibe.jpg",
+    // image: "/mausamvibe.jpg",
+    color: "#1ABC54",
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-};
-
 export default function Projects() {
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const springX = useSpring(x, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
   return (
-    <section
-      id="projects"
-      className="relative flex min-h-[70vh] flex-col items-center justify-center py-24 overflow-hidden scroll-mt-20"
-    >
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-20 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="z-10 w-full max-w-7xl px-4 md:px-6">
-        {/* Header Section */}
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-start"
-          >
-            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl text-left bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text">
-              Featured Projects
-            </h2>
-            <div className="mt-4 h-1 w-20 rounded-full bg-primary" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="hidden md:block"
-          >
-            <a
-              href="https://github.com/SaumiliHaldar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/50 backdrop-blur-sm px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-accent hover:border-primary/50"
-            >
-              <FolderOpen className="h-4 w-4 text-foreground" />
-              <span>View All</span>
-            </a>
-          </motion.div>
+    <section ref={containerRef} id="projects" className="relative h-[400vh] bg-[#080808]">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        {/* Background Section Title (Hidden on small screens) */}
+        <div className="absolute top-20 left-10 z-0 opacity-[0.02] select-none pointer-events-none hidden lg:block">
+           <h2 className="text-[20vw] font-black leading-none uppercase font-heading">
+             WORK
+           </h2>
         </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={item}
-              className="group relative flex flex-col h-full rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 active:scale-[0.98]"
-            >
-              {/* Image Section */}
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-                />
-                
-                {/* Overlay on hover (Desktop only) */}
-                <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 hidden lg:flex items-center justify-center gap-6 z-20">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 rounded-full bg-[#1a1a1a]/90 border border-white/10 text-white hover:text-primary hover:border-primary/50 transition-all duration-300 shadow-2xl scale-75 group-hover:scale-100"
-                    title="View Code"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-all duration-300 shadow-2xl shadow-primary/20 scale-75 group-hover:scale-100"
-                    title="Live Demo"
-                  >
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
+        <motion.div style={{ x: springX }} className="flex gap-8 px-10 md:px-20 items-center">
+          {/* Intro Card */}
+          <div className="flex h-[70vh] w-[80vw] md:w-[45vw] flex-col justify-center gap-6 p-4 shrink-0">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               className="space-y-6"
+             >
+                <div className="flex items-center gap-4 text-primary">
+                   <Layers size={32} />
+                   <span className="text-sm font-bold uppercase tracking-[0.3em]">Featured Work</span>
                 </div>
-
-                {/* Status Indicator */}
-                <div className="absolute top-3 left-3 px-2 py-0.5 rounded-md bg-background/60 backdrop-blur-sm border border-white/10 text-[9px] font-bold tracking-widest uppercase text-foreground/70">
-                  {project.id}
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="flex flex-1 flex-col p-6 pt-5">
-                <div className="mb-4">
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary mb-1 block">
-                    {project.subtitle}
-                  </span>
-                  <h3 className="text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight">
-                    {project.title}
-                  </h3>
-                </div>
-                
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors">
-                  {project.description}
+                <h2 className="text-6xl md:text-8xl font-black font-heading tracking-tighter text-foreground leading-[0.9]">
+                   SELECTED <br /> <span className="text-primary italic">PIECES.</span>
+                </h2>
+                <p className="text-muted-foreground text-lg max-w-md italic">
+                   A collection of engineered solutions, from AI-driven platforms to high-performance data systems.
                 </p>
+             </motion.div>
+          </div>
 
-                {/* Tech Stack Pills */}
-                <div className="mt-auto flex flex-wrap gap-1.5 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-[9px] font-bold tracking-widest uppercase rounded-md bg-primary/5 border border-primary/10 text-primary/70 group-hover:text-primary group-hover:border-primary/20 transition-all duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Mobile Action Buttons (Visible only on mobile/tablet) */}
-                <div className="grid lg:hidden grid-cols-2 gap-3 mt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-secondary/80 border border-border/40 text-sm font-bold text-foreground transition-all active:scale-95 shadow-sm"
-                  >
-                    <Github className="h-4 w-4" />
-                    <span>Code</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-bold transition-all active:scale-95 shadow-lg shadow-primary/20"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    <span>Demo</span>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Bottom Glow Effect */}
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition-all duration-700 group-hover:w-full group-hover:opacity-100" />
-            </motion.div>
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </motion.div>
+          
+          {/* Final Card */}
+          <div className="group relative flex h-[75vh] w-[85vw] md:w-[60vw] lg:w-[50vw] flex-col shrink-0 overflow-hidden rounded-[3rem] bg-secondary/20 border border-white/5 hover:border-primary/30 transition-colors duration-700">
+             {/* Background ID Number */}
+             <div className="absolute top-8 right-12 text-8xl font-black text-white/[0.03] select-none pointer-events-none group-hover:text-primary/10 transition-colors">
+                ++
+             </div>
 
-        {/* Mobile View All Button (visible only on mobile) */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 flex justify-center lg:hidden"
-        >
-          <a
-            href="https://github.com/SaumiliHaldar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-border/40 bg-card py-4 text-sm font-bold text-foreground transition-all active:scale-[0.98]"
-          >
-            <FolderOpen className="h-4 w-4" />
-            <span>View All on GitHub</span>
-          </a>
+             <div className="flex flex-col h-full p-8 md:p-12 items-center justify-center text-center gap-8 relative z-10">
+                <div className="space-y-4">
+                   <h3 className="text-4xl md:text-6xl font-black font-heading text-foreground uppercase tracking-tighter group-hover:text-primary transition-colors">More on GitHub</h3>
+                   <p className="text-muted-foreground text-lg max-w-sm mx-auto">Explore 20+ other repositories, experimentations, and open-source contributions.</p>
+                </div>
+                
+                <motion.a
+                  href="https://github.com/SaumiliHaldar"
+                  target="_blank"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group/btn flex items-center gap-4 px-10 py-5 bg-primary text-primary-foreground rounded-full font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20"
+                >
+                   <Github size={20} />
+                   Visit Profile
+                   <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+                </motion.a>
+             </div>
+
+             {/* Visual Accent Gradient */}
+             <div 
+               className="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 blur-[100px] pointer-events-none"
+               style={{ background: `radial-gradient(circle, var(--primary) 0%, transparent 70%)` }}
+             />
+          </div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, index }) {
+  return (
+    <motion.div
+      className="group relative flex h-[75vh] w-[85vw] md:w-[60vw] lg:w-[50vw] flex-col shrink-0 overflow-hidden rounded-[3rem] bg-secondary/20 border border-white/5 hover:border-primary/30 transition-all duration-700"
+    >
+      {/* Image Background Layer (Conditional) */}
+      {project.image && (
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="h-full w-full object-cover opacity-20 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:scale-110 group-hover:grayscale-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent" />
+        </div>
+      )}
+
+      {/* Background ID Number */}
+      <div className="absolute top-8 right-12 text-8xl font-black text-white/[0.03] select-none pointer-events-none group-hover:text-primary/10 transition-colors z-10">
+         {project.id}
+      </div>
+
+      <div className="flex flex-col h-full p-8 md:p-12 justify-between relative z-20">
+        <div>
+          <div className="flex items-center mb-8">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-4 py-1.5 rounded-full backdrop-blur-md">
+              {project.subtitle}
+            </span>
+          </div>
+          
+          <h3 className="text-5xl md:text-7xl font-black font-heading text-foreground tracking-tighter uppercase mb-6 group-hover:text-primary transition-colors duration-500">
+            {project.title}
+          </h3>
+          
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl group-hover:text-foreground transition-colors duration-500">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span 
+                key={tag} 
+                className="px-4 py-1.5 rounded-full bg-white/5 border border-white/5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:border-primary/20 group-hover:text-primary transition-all duration-500 backdrop-blur-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          
+          <motion.a
+            href={project.demo}
+            target="_blank"
+            className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] text-foreground group-hover:text-primary transition-colors"
+          >
+             Launch Experience
+             <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary group-hover:translate-x-2 transition-all bg-white/5 backdrop-blur-sm">
+                <ArrowRight size={18} />
+             </div>
+          </motion.a>
+        </div>
+      </div>
+      
+      {/* Visual Accent Gradient */}
+      <div 
+        className="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 blur-[100px] pointer-events-none z-10"
+        style={{ background: `radial-gradient(circle, ${project.color} 0%, transparent 70%)` }}
+      />
+    </motion.div>
   );
 }
