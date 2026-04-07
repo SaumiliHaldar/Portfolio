@@ -105,11 +105,6 @@ export default function Projects() {
 
         {/* ── Cards — horizontal scroll fills remaining height ── */}
         <div className="flex-1 flex items-center overflow-hidden relative">
-          {/* Background watermark desktop only */}
-          <div className="absolute top-0 left-10 z-0 opacity-[0.02] select-none pointer-events-none hidden lg:block">
-            <h2 className="text-[20vw] font-black leading-none uppercase font-heading">WORK</h2>
-          </div>
-
           <motion.div
             ref={scrollRef}
             style={{ x: springX }}

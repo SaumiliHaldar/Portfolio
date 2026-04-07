@@ -55,7 +55,7 @@ export default function Hero() {
             transition={{ ...mechanicalTransition, delay: 0.1 }}
             className="mb-4"
           >
-            <span className="text-xl md:text-2xl font-bold font-heading tracking-widest text-neutral-400">
+            <span className="text-xl md:text-2xl font-bold font-heading tracking-widest text-neutral">
               Hi, I'm
             </span>
           </motion.div>
@@ -66,7 +66,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...mechanicalTransition, delay: 0.3 }}
           >
-            Saumili <span className="text-primary italic">Haldar</span>
+            Saumili <span className="text-primary">Haldar</span>
           </motion.h1>
 
           <motion.h2
