@@ -10,7 +10,7 @@ export default function MagneticCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [hoverData, setHoverData] = useState({ width: 0, height: 0, x: 0, y: 0 });
 
-  const springConfig = { damping: 20, stiffness: 150, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 200, mass: 0.5 };
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
 
@@ -26,7 +26,7 @@ export default function MagneticCursor() {
     const handleMouseUp = () => setIsClicking(false);
 
     const handleMouseOver = (e) => {
-      const target = e.target.closest("button, a, .magnetic-item");
+      const target = e.target.closest("button, a, .magnetic-item, .group");
       if (target) {
         setIsHovering(true);
         const rect = target.getBoundingClientRect();
@@ -60,27 +60,40 @@ export default function MagneticCursor() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
-      {/* Main Cursor Dot/Circle */}
+      {/* Main Cursor Dot */}
       <motion.div
-        className="absolute top-0 left-0 rounded-full bg-primary border-2 border-primary mix-blend-difference"
+        className="absolute top-0 left-0 bg-primary mix-blend-difference"
         style={{
           x: springX,
           y: springY,
-          width: isHovering ? hoverData.width + 10 : 12,
-          height: isHovering ? hoverData.height + 10 : 12,
+          width: isHovering ? 4 : 8,
+          height: isHovering ? 4 : 8,
           translateX: "-50%",
           translateY: "-50%",
           opacity: isClicking ? 0.5 : 1,
-          scale: isClicking ? 0.8 : 1,
-          borderRadius: isHovering ? "8px" : "50%",
-          backgroundColor: isHovering ? "transparent" : "var(--primary)",
+          scale: isClicking ? 0.5 : 1,
+          borderRadius: "50%",
         }}
-        transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
       />
       
-      {/* Spotify Gradient Glow */}
+      {/* Outer Ring */}
       <motion.div
-        className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full opacity-20 blur-[60px]"
+        className="absolute top-0 left-0 border border-primary/30"
+        style={{
+          x: springX,
+          y: springY,
+          width: isHovering ? hoverData.width + 20 : 40,
+          height: isHovering ? hoverData.height + 20 : 40,
+          translateX: "-50%",
+          translateY: "-50%",
+          borderRadius: isHovering ? "4px" : "50%",
+        }}
+        transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+      />
+
+      {/* Glow */}
+      <motion.div
+        className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
         style={{
           x: springX,
           y: springY,
@@ -92,3 +105,4 @@ export default function MagneticCursor() {
     </div>
   );
 }
+
