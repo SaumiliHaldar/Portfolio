@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Download } from "lucide-react";
-import { useActiveSection } from "@/hooks/useActiveSection";
 
 const navItems = [
   { name: "About", href: "#about", id: "about" },
@@ -12,7 +12,6 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const activeSection = useActiveSection(navItems.map((item) => item.id));
   const [currentDate, setCurrentDate] = useState({ month: "", day: "", year: "" });
 
   useEffect(() => {
@@ -52,8 +51,8 @@ export default function Navbar() {
           className="group flex items-center gap-3"
         >
           <div className="h-9 w-9 p-0.5 rounded-full border border-foreground/20 group cursor-pointer overflow-hidden transition-all hover:border-primary shrink-0">
-            <div className="h-full w-full rounded-full overflow-hidden transition-all duration-500">
-              <img src="/Saumili.jpg" alt="Saumili" className="h-full w-full object-cover" />
+            <div className="relative h-full w-full rounded-full overflow-hidden transition-all duration-500">
+              <Image src="/Saumili.jpg" alt="Saumili" fill className="object-cover" />
             </div>
           </div>
           <div className="flex flex-col">
@@ -66,8 +65,7 @@ export default function Navbar() {
 
       {/* Center: Indexed Navigation Links */}
       <div className="flex items-center gap-10">
-        {navItems.map((item, index) => {
-             const isActive = activeSection === item.id;
+        {navItems.map((item) => {
              return (
                <a
                  key={item.name}

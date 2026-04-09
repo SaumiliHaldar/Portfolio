@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, Twitter, Star } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Star } from "lucide-react";
 
 const skills = [
   { name: "Python", icon: "PY" },
@@ -41,7 +42,7 @@ export default function Hero() {
             >
               <div className="h-[1px] w-8 bg-primary/40" />
               <span className="text-sm md:text-lg font-bold tracking-[0.3em] uppercase text-neutral-400">
-                Hi, I&apos;m
+                Hi, I'm
               </span>
             </motion.div>
 
@@ -107,20 +108,30 @@ export default function Hero() {
 
           {/* Call to Actions */}
           <motion.div
-            className="flex flex-wrap items-center justify-start gap-6"
+            className="flex flex-wrap items-center justify-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...mechanicalTransition, delay: 1 }}
           >
             <motion.a
               href="#projects"
-              className="group relative px-10 py-5 bg-white text-black font-bold text-xs uppercase tracking-widest overflow-hidden transition-all hover:bg-primary hover:text-black"
+              className="group relative px-10 py-5 bg-primary text-black font-bold text-xs uppercase tracking-widest overflow-hidden transition-all hover:bg-white hover:text-black"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10 flex items-center gap-2">
                 Explore Work <ArrowUpRight className="w-4 h-4" />
               </span>
+            </motion.a>
+
+            <motion.a
+              href="/Saumili-Haldar-Resume.pdf"
+              download
+              className="group flex items-center gap-2 px-10 py-5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/5"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Download Resume
             </motion.a>
           </motion.div>
         </div>
@@ -136,10 +147,13 @@ export default function Hero() {
           <div className="relative w-full aspect-[4/5] max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] group">
             <div className="absolute -inset-4 border border-white/5 rounded-2xl -z-10 group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-700">
-              <img 
+              <Image 
                 src="/Saumili.jpg" 
-                alt="Saumili Haldar" 
+                alt="Saumili Haldar"
+                width={400}
+                height={500}
                 className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-1000"
+                priority
               />
             </div>
 

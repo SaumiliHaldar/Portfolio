@@ -16,7 +16,7 @@ const navItems = [
 ];
 
 export default function Footer() {
-  const currentYear = 2026;
+  const currentYear = new Date().getFullYear();
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
@@ -33,12 +33,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
           {/* Logo/Name & Copyright */}
-          <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-sm font-black tracking-tighter uppercase text-foreground">
               Saumili Haldar
             </span>
-            <span className="text-[9px] font-bold tracking-[0.2em] text-muted-foreground/40 uppercase">
-              © {currentYear} . All rights reserved.
+            <span className="text-[9px] font-bold tracking-[0.2em] text-muted-foreground/40 uppercase mt-1">
+              © {currentYear} · All rights reserved.
             </span>
           </div>
 
@@ -49,9 +49,10 @@ export default function Footer() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className="group relative text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 transition-all duration-300"
+                className="group relative text-[10px] font-bold tracking-[0.25em] uppercase text-muted-foreground/70 hover:text-foreground transition-colors duration-300"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
@@ -111,7 +112,7 @@ function ProjectCard({ project }) {
           {/* Title */}
           <div className="flex items-start gap-3">
             <div
-              className="mt-2 h-7 w-[3px] shrink-0 rounded-full"
+              className="self-stretch w-[3px] shrink-0 rounded-full"
               style={{ background: project.color }}
             />
             <div>
@@ -182,9 +183,11 @@ function ProjectCard({ project }) {
         </div>
 
         {/* Screenshot */}
-        <img
+        <Image
           src={project.image}
           alt={`${project.title} screenshot`}
+          width={800}
+          height={600}
           className="absolute inset-0 w-full h-full object-cover object-top transform transition-transform duration-700 ease-out group-hover:scale-[1.04] opacity-75 group-hover:opacity-100"
           style={{ paddingTop: "2rem" }}
           loading="lazy"
@@ -192,11 +195,6 @@ function ProjectCard({ project }) {
 
         {/* Edge fade overlay */}
         <div className="absolute inset-0 shadow-[inset_-4px_0_40px_rgba(0,0,0,0.7),inset_0_-4px_40px_rgba(0,0,0,0.5)] pointer-events-none" />
-
-        {/* Ghost index */}
-        <div className="absolute bottom-3 right-4 text-[52px] font-black font-mono text-white/[0.04] select-none pointer-events-none leading-none">
-          {project.id}
-        </div>
       </div>
     </div>
   );

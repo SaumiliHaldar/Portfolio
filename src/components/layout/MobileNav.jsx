@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
-import { useActiveSection } from "@/hooks/useActiveSection";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "About", href: "#about", id: "about" },
@@ -14,7 +14,6 @@ const navItems = [
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const activeSection = useActiveSection(navItems.map((item) => item.id));
   const [currentDate, setCurrentDate] = useState({ month: "", day: "", year: "" });
 
   useEffect(() => {
@@ -59,8 +58,8 @@ export default function MobileNav() {
           onClick={(e) => handleNavClick(e, "")}
           className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <div className="h-8 w-8 rounded-full border border-foreground/20 overflow-hidden shrink-0">
-            <img src="/Saumili.jpg" alt="/Saumili.jpg" className="h-full w-full object-cover" />
+          <div className="relative h-8 w-8 rounded-full border border-foreground/20 overflow-hidden shrink-0">
+            <Image src="/Saumili.jpg" alt="Saumili" fill className="object-cover" />
           </div>
           <span className="text-sm font-black tracking-tighter uppercase leading-none text-foreground group-hover:text-primary transition-colors">
             Saumili

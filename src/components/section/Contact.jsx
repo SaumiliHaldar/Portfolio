@@ -122,46 +122,46 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col items-start space-y-8"
           >
-            <h3 className="text-2xl font-semibold text-foreground text-left">
-              Let's Connect!
+            <h3 className="text-2xl font-black font-heading tracking-tight text-white italic text-left">
+              Let's Connect.
             </h3>
-            <p className="text-muted-foreground text-left">
+            <p className="text-neutral-400 text-sm leading-relaxed text-left border-l-2 border-primary/20 pl-4">
               I'm currently open to new opportunities and collaborations.
               Whether you have a question or just want to connect, feel free to reach out.
             </p>
 
             <div className="space-y-6 w-full">
-              <div className="flex flex-row items-center gap-4 text-left">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex flex-row items-center gap-4 text-left group">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-primary group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground">Phone</h4>
-                  <a href="tel:+917063737272" className="text-muted-foreground hover:text-primary transition-colors">
+                  <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Phone</h4>
+                  <a href="tel:+917063737272" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors">
                     +91 7063737272
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-row items-center gap-4 text-left">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex flex-row items-center gap-4 text-left group">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-primary group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground">Email</h4>
-                  <a href="mailto:haldar.saumili843@gmail.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                  <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Email</h4>
+                  <a href="mailto:haldar.saumili843@gmail.com" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all">
                     haldar.saumili843@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-row items-center gap-4 text-left">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex flex-row items-center gap-4 text-left group">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-primary group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
                   <Linkedin className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground">LinkedIn</h4>
-                  <a href="https://www.linkedin.com/in/saumili-haldar-0804s2003" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                  <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">LinkedIn</h4>
+                  <a href="https://www.linkedin.com/in/saumili-haldar-0804s2003" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all">
                     linkedin.com/in/saumili-haldar
                   </a>
                 </div>
@@ -175,12 +175,12 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm"
+            className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] backdrop-blur-sm p-6 md:p-8 shadow-2xl"
           >
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
+                  <label htmlFor="name" className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500">Name</label>
                   <input
                     id="name"
                     type="text"
@@ -188,11 +188,11 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all duration-200"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
+                  <label htmlFor="email" className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500">Email</label>
                   <input
                     id="email"
                     type="email"
@@ -200,13 +200,13 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Your Email"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-md border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all duration-200"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">Subject</label>
+                <label htmlFor="subject" className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500">Subject</label>
                 <input
                   id="subject"
                   type="text"
@@ -214,12 +214,12 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Your Subject"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex h-10 w-full rounded-md border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all duration-200"
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
+                <label htmlFor="message" className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500">Message</label>
                 <textarea
                   id="message"
                   rows={4}
@@ -227,14 +227,14 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Your Message..."
-                  className="flex h-24 w-full resize-none rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 overflow-y-auto"
+                  className="flex h-24 w-full resize-none rounded-md border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all duration-200 overflow-y-auto"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex items-center justify-center whitespace-nowrap bg-primary text-black px-4 py-2 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors duration-300 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]"
               >
                 {status === "submitting" ? "Sending..." : "Send Message"}
               </button>
