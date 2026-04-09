@@ -15,7 +15,6 @@ export default function About() {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
 
         <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
 
       <div className="z-10 w-full max-w-7xl mx-auto px-4 md:px-8">

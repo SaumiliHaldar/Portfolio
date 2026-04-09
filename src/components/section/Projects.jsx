@@ -275,15 +275,7 @@ export default function Projects() {
 
   return (
     <section ref={containerRef} id="projects" className="relative h-[400vh] bg-black">
-      {/* Subtle grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.07) 1px,transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+
 
       <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
 

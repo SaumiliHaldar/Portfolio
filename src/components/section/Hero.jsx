@@ -20,12 +20,6 @@ export default function Hero() {
       {/* Synchronized Background (Matching Experience Section) */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(29,185,84,0.1),transparent_70%)]" />
-        <div className="absolute inset-0" 
-             style={{ 
-               backgroundImage: `radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)`, 
-               backgroundSize: '40px 40px' 
-             }} 
-        />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl px-6 md:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">

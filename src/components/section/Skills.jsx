@@ -155,13 +155,7 @@ export default function Skills() {
                         ${spanClass}
                     `}
               >
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
-                    backgroundSize: '24px 24px'
-                  }}
-                />
+
 
                 {/* Gradient Bloom */}
                 <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/10 blur-[40px] group-hover:bg-primary/20 transition-all duration-500" />
