@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Github, ArrowRight } from "lucide-react";
 
 const projects = [
@@ -124,15 +124,8 @@ export default function Projects() {
 }
 
 function ProjectCard({ project, index }) {
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: "0px -10% 0px 0px" });
-
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, scale: 0.95, x: 50 }}
-      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className="group relative flex h-[65vh] w-[85vw] md:w-[60vw] lg:w-[50vw] flex-col shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-secondary/40 border border-white/5 hover:border-primary/30 transition-all duration-700"
     >
       {/* ── Image - masked softly to prevent overcrowding ── */}
@@ -208,20 +201,13 @@ function ProjectCard({ project, index }) {
         className="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 blur-[40px] md:blur-[80px] pointer-events-none z-10"
         style={{ background: `radial-gradient(circle, ${project.color} 0%, transparent 70%)` }}
       />
-    </motion.div>
+    </div>
   );
 }
 
 function GithubCard() {
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: "0px -10% 0px 0px" });
-
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, scale: 0.95, x: 50 }}
-      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className="group relative flex h-[65vh] w-[85vw] md:w-[60vw] lg:w-[50vw] flex-col shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-secondary/20 border border-white/5 hover:border-primary/30 transition-colors duration-700"
     >
       <div className="absolute top-8 right-12 text-6xl md:text-8xl font-black text-white/[0.03] select-none pointer-events-none group-hover:text-primary/10 transition-colors">
@@ -251,6 +237,6 @@ function GithubCard() {
         className="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 blur-[60px] pointer-events-none"
         style={{ background: `radial-gradient(circle, var(--primary) 0%, transparent 70%)` }}
       />
-    </motion.div>
+    </div>
   );
 }
