@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark selection:bg-primary/30 selection:text-primary">
       <head>
-        <title>Saumili Haldar</title>
+        <title>Saumili Haldar | Software Developer</title>
         <meta name="description" content="Saumili Haldar - Software Developer. Expert in building scalable web applications. Explore my projects, skills, and professional journey. Get in touch today." />
       </head>
       <body className="antialiased bg-background text-foreground flex min-h-screen relative font-sans overflow-x-hidden">
