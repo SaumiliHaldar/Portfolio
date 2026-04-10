@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
@@ -39,6 +40,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark selection:bg-primary/30 selection:text-primary">
       <body className="antialiased bg-background text-foreground flex min-h-screen relative font-sans overflow-x-hidden">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LKZ040TQGS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LKZ040TQGS');
+          `}
+        </Script>
         <Providers>
           <BackgroundAnimations />
           <MagneticCursor />
