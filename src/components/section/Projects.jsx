@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 
@@ -93,10 +93,43 @@ function FeatureBullet({ text, color }) {
 
 // ── Individual project card ────────────────────────────────────────────────
 function ProjectCard({ project }) {
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+  const rotateX = useTransform(mouseYSpring, [0, 1], ["6deg", "-6deg"]);
+  const rotateY = useTransform(mouseXSpring, [0, 1], ["-6deg", "6deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width;
+    const yPct = mouseY / height;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0.5);
+    y.set(0.5);
+  };
+
   return (
-    <div
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        minHeight: "420px",
+      }}
       className="group relative shrink-0 flex flex-col-reverse lg:flex-row w-[88vw] md:w-[72vw] lg:w-[65vw] xl:w-[60vw] rounded-2xl border border-white/[0.06] bg-[#181818] overflow-hidden hover:border-primary/20 transition-colors duration-500"
-      style={{ minHeight: "420px" }}
     >
       {/* Ambient glow */}
       <div
@@ -107,7 +140,10 @@ function ProjectCard({ project }) {
       />
 
       {/* ── TOP/LEFT: Info panel ── */}
-      <div className="relative z-10 flex flex-col justify-between p-6 md:p-8 lg:p-9 w-full lg:w-[45%] lg:shrink-0">
+      <div 
+        style={{ transform: "translateZ(50px)" }}
+        className="relative z-10 flex flex-col justify-between p-6 md:p-8 lg:p-9 w-full lg:w-[45%] lg:shrink-0"
+      >
         <div className="space-y-5">
           {/* Title */}
           <div className="flex items-start gap-3">
@@ -171,7 +207,10 @@ function ProjectCard({ project }) {
       </div>
 
       {/* ── BOTTOM/RIGHT: Screenshot panel ── */}
-      <div className="relative flex-1 min-h-[220px] lg:min-h-0 overflow-hidden bg-[#0f0f0f]">
+      <div 
+        style={{ transform: "translateZ(30px)" }}
+        className="relative flex-1 min-h-[220px] lg:min-h-0 overflow-hidden bg-[#0f0f0f]"
+      >
         {/* Browser chrome bar */}
         <div className="absolute top-0 inset-x-0 z-10 flex items-center gap-1.5 px-3 py-2.5 bg-[#141414] border-b border-white/[0.05]">
           <span className="w-2 h-2 rounded-full bg-white/10" />
@@ -196,7 +235,7 @@ function ProjectCard({ project }) {
         {/* Edge fade overlay */}
         <div className="absolute inset-0 shadow-[inset_-4px_0_40px_rgba(0,0,0,0.7),inset_0_-4px_40px_rgba(0,0,0,0.5)] pointer-events-none" />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

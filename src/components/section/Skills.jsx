@@ -33,7 +33,8 @@ const skillCategories = [
   {
     title: "Languages",
     icon: BiCodeBlock,
-    class: "lg:col-span-2",
+    spanClass: "lg:col-span-2 lg:row-span-1 bg-card/40",
+    layoutClass: "grid grid-cols-4 sm:grid-cols-4 gap-4",
     skills: [
       { name: "Python", icon: FaPython, colorClass: "text-blue-500" },
       { name: "Java", icon: FaJava, colorClass: "text-red-500" },
@@ -44,7 +45,8 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: BiGlobe,
-    class: "lg:col-span-1",
+    spanClass: "lg:col-span-2 lg:row-span-1 bg-card/20",
+    layoutClass: "grid grid-cols-4 sm:grid-cols-5 gap-3",
     skills: [
       { name: "HTML5", icon: FaHtml5, colorClass: "text-orange-600" },
       { name: "CSS3", icon: FaCss3Alt, colorClass: "text-blue-500" },
@@ -56,7 +58,8 @@ const skillCategories = [
   {
     title: "Database & Deployment",
     icon: BiData,
-    class: "lg:col-span-2",
+    spanClass: "lg:col-span-2 lg:row-span-1 bg-card/20",
+    layoutClass: "grid grid-cols-4 sm:grid-cols-5 gap-3",
     skills: [
       { name: "MongoDB", icon: SiMongodb, colorClass: "text-green-500" },
       { name: "PostgreSQL", icon: SiPostgresql, colorClass: "text-blue-600" },
@@ -68,7 +71,8 @@ const skillCategories = [
   {
     title: "Backend & API",
     icon: BiServer,
-    class: "lg:col-span-1",
+    spanClass: "lg:col-span-1 lg:row-span-1 bg-card/20",
+    layoutClass: "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3",
     skills: [
       { name: "FastAPI", icon: SiFastapi, colorClass: "text-teal-500" },
       { name: "Django", icon: SiDjango, colorClass: "text-emerald-900" },
@@ -79,7 +83,8 @@ const skillCategories = [
   {
     title: "Tools & AI",
     icon: BiTerminal,
-    class: "lg:col-span-3",
+    spanClass: "lg:col-span-1 lg:row-span-1 bg-card/30",
+    layoutClass: "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3",
     skills: [
       { name: "Git", icon: FaGitAlt, colorClass: "text-orange-600" },
       { name: "GitHub", icon: FaGithub, colorClass: "text-foreground" },
@@ -115,31 +120,6 @@ export default function Skills() {
           {skillCategories.map((category, index) => {
             const CategoryIcon = category.icon;
 
-            let spanClass = "";
-            let layoutClass = "grid grid-cols-3 sm:grid-cols-4"; // Default layout
-
-            // Adjusted logic based on User's resize (Database=Wide, Tools=Small)
-            if (index === 0) { // Languages (2x1)
-              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/40";
-              layoutClass = "grid grid-cols-4 sm:grid-cols-4 gap-4";
-            }
-            else if (index === 1) { // Frontend (2x1)
-              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
-              layoutClass = "grid grid-cols-4 sm:grid-cols-5 gap-3";
-            }
-            else if (index === 2) { // Database (2x1) - Wide now
-              spanClass = "lg:col-span-2 lg:row-span-1 bg-card/20";
-              layoutClass = "grid grid-cols-4 sm:grid-cols-5 gap-3";
-            }
-            else if (index === 3) { // Backend (1x1) - Small
-              spanClass = "lg:col-span-1 lg:row-span-1 bg-card/20";
-              layoutClass = "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3";
-            }
-            else if (index === 4) { // Tools (1x1) - Small now
-              spanClass = "lg:col-span-1 lg:row-span-1 bg-card/30";
-              layoutClass = "grid grid-cols-4 gap-4 md:grid-cols-2 md:gap-3";
-            }
-
             return (
               <motion.div
                 key={category.title}
@@ -152,7 +132,7 @@ export default function Skills() {
                         backdrop-blur-md border border-white/5 dark:border-white/5
                         hover:border-primary/20 hover:bg-card/60 transition-all duration-500
                         overflow-hidden
-                        ${spanClass}
+                        ${category.spanClass}
                     `}
               >
 
@@ -171,7 +151,7 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className={`${layoutClass} relative z-10 w-full pt-1`}>
+                <div className={`${category.layoutClass} relative z-10 w-full pt-1`}>
                   {category.skills.map((skill) => {
                     const Icon = skill.icon;
                     return (

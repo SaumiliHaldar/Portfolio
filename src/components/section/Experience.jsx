@@ -64,7 +64,11 @@ export default function Experience() {
         </div>
 
         {/* Experience Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 lg:gap-x-20 lg:gap-y-24">
+        <div className="relative">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-0 lg:left-1/2 top-4 bottom-4 w-[1px] border-l border-dashed border-primary/20 -translate-x-1/2 z-0 hidden md:block" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 lg:gap-x-20 lg:gap-y-24">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
@@ -131,8 +135,9 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
-
       </div>
-    </section>
+
+    </div>
+  </section>
   );
 }

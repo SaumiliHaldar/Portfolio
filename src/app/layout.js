@@ -27,6 +27,12 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: "/icon-light.svg", media: "(prefers-color-scheme: light)", type: "image/svg+xml" },
+      { url: "/icon-dark.svg", media: "(prefers-color-scheme: dark)", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

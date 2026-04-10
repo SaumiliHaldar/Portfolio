@@ -7,7 +7,7 @@ export default function About() {
   const mechanicalTransition = { duration: 0.8, ease: [0.23, 1, 0.32, 1] };
 
   return (
-<section
+    <section
       id="about"
       className="relative py-16 md:py-24 overflow-hidden bg-zinc-950 scroll-mt-20 selection:bg-primary selection:text-black"
     >
@@ -36,11 +36,11 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...mechanicalTransition, delay: 0.2 }}
-              className="space-y-6"
+               initial={{ opacity: 0, y: 15 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ ...mechanicalTransition, delay: 0.2 }}
+               className="space-y-6"
             >
               <h3 className="text-xl md:text-2xl font-bold font-heading text-neutral-100 italic">
                 Passionate Developer & Lifelong Learner
@@ -60,11 +60,11 @@ export default function About() {
             </motion.div>
 
             <motion.div 
-              className="flex flex-wrap gap-4 pt-2"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...mechanicalTransition, delay: 0.4 }}
+               className="flex flex-wrap gap-4 pt-2"
+               initial={{ opacity: 0, y: 15 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ ...mechanicalTransition, delay: 0.4 }}
             >
               <div className="flex items-center gap-3 px-5 py-4 bg-white/[0.03] border border-white/10 rounded-2xl transition-all hover:bg-white/[0.06] hover:border-primary/20 shadow-xl group">
                 <Code className="text-primary h-5 w-5" />

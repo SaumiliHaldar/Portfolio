@@ -46,7 +46,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...mechanicalTransition, delay: 0.2 }}
             >
-              <h1 className="text-4xl lg:text-8xl leading-[0.8] font-black tracking-tighter text-white uppercase select-none whitespace-nowrap lg:whitespace-normal">
+              <h1 className="text-4xl lg:text-8xl leading-[0.8] font-black tracking-tighter text-white uppercase whitespace-nowrap lg:whitespace-normal">
                 Saumili <br className="hidden lg:block" />
                 <span className="text-neutral-200 opacity-50 hover:opacity-100 transition-opacity duration-500">Haldar</span>
               </h1>
