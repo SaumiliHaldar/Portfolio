@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Linkedin, Phone, CheckCircle2, AlertCircle, X } from "lucide-react";
+import { Mail, Linkedin, CheckCircle2, AlertCircle, X } from "lucide-react";
 
 // Themed Toaster Component
 const Toast = ({ message, type, onClose }) => {
@@ -131,17 +131,6 @@ export default function Contact() {
             </p>
 
             <div className="space-y-6 w-full">
-              <div className="flex flex-row items-center gap-4 text-left group">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-primary group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Phone</h4>
-                  <a href="tel:+917063737272" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors">
-                    +91 7063737272
-                  </a>
-                </div>
-              </div>
 
               <div className="flex flex-row items-center gap-4 text-left group">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-primary group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
