@@ -28,6 +28,7 @@ import {
   SiNextdotjs,
 } from "react-icons/si";
 import { BiCodeBlock, BiData, BiServer, BiGlobe, BiTerminal } from "react-icons/bi";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 const skillCategories = [
   {
@@ -98,6 +99,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
+      ref={useSectionTracking("Skills")}
       className="relative flex min-h-fit flex-col items-center justify-center py-10 md:py-16 bg-zinc-950 overflow-hidden scroll-mt-20"
     >
       <div className="z-10 w-full max-w-7xl px-4 md:px-6">

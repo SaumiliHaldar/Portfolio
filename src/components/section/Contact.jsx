@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Linkedin, CheckCircle2, AlertCircle, X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 // Themed Toaster Component
 const Toast = ({ message, type, onClose }) => {
@@ -75,6 +77,7 @@ export default function Contact() {
         setStatus("success");
         setToast({ message: "Message sent successfully!", type: "success" });
         setFormData({ name: "", email: "", subject: "", message: "" });
+        trackEvent("contact_form_success", { subject: formData.subject });
       } else {
         throw new Error(result.error || "Failed to send");
       }
@@ -95,6 +98,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      ref={useSectionTracking("Contact")}
       className="relative flex min-h-[40vh] md:min-h-[60vh] flex-col items-center justify-center py-12 md:py-20 bg-zinc-950 overflow-hidden scroll-mt-20"
     >
       <div className="z-10 w-full max-w-7xl px-4 md:px-6">
@@ -138,7 +142,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Email</h4>
-                  <a href="mailto:haldar.saumili843@gmail.com" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all">
+                  <a 
+                    href="mailto:haldar.saumili843@gmail.com" 
+                    onClick={() => trackEvent("contact_click", { type: "email" })}
+                    className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all"
+                  >
                     haldar.saumili843@gmail.com
                   </a>
                 </div>
@@ -150,7 +158,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">LinkedIn</h4>
-                  <a href="https://www.linkedin.com/in/saumili-haldar-0804s2003" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all">
+                  <a 
+                    href="https://www.linkedin.com/in/saumili-haldar-0804s2003" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onClick={() => trackEvent("contact_click", { type: "linkedin" })}
+                    className="text-sm font-medium text-neutral-300 hover:text-primary transition-colors break-all"
+                  >
                     linkedin.com/in/saumili-haldar
                   </a>
                 </div>

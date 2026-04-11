@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Download } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const navItems = [
   { name: "About", href: "#about", id: "about" },
@@ -36,8 +37,10 @@ export default function Navbar() {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      trackEvent("nav_click", { section: id });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      trackEvent("nav_click", { section: "top" });
     }
   };
 
@@ -52,7 +55,13 @@ export default function Navbar() {
         >
           <div className="h-9 w-9 p-0.5 rounded-full border border-foreground/20 group cursor-pointer overflow-hidden transition-all hover:border-primary shrink-0">
             <div className="relative h-full w-full rounded-full overflow-hidden transition-all duration-500">
-              <Image src="/Saumili.jpg" alt="Saumili" fill className="object-cover" />
+              <Image 
+                src="/Saumili.jpg" 
+                alt="Saumili" 
+                fill 
+                sizes="36px"
+                className="object-cover" 
+              />
             </div>
           </div>
           <div className="flex flex-col">
@@ -100,6 +109,7 @@ export default function Navbar() {
           <a
             href="/Saumili-Haldar-Resume.pdf"
             download
+            onClick={() => trackEvent("download_resume", { location: "navbar" })}
             className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground transition-all duration-300 hover:brightness-105 active:scale-95 shadow-lg shadow-primary/20"
           >
             <span className="text-[11px] font-black tracking-[0.2em] uppercase">

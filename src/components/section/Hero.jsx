@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Star } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 const skills = [
   { name: "Python", icon: "PY" },
@@ -16,7 +18,10 @@ export default function Hero() {
   const mechanicalTransition = { duration: 0.8, ease: [0.23, 1, 0.32, 1] };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-12 overflow-hidden bg-black">
+    <section 
+      ref={useSectionTracking("Hero")}
+      className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-12 overflow-hidden bg-black"
+    >
       {/* Synchronized Background (Matching Experience Section) */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(29,185,84,0.1),transparent_70%)]" />
@@ -109,6 +114,7 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
+              onClick={() => trackEvent("explore_work_click", { location: "hero" })}
               className="group relative px-10 py-5 bg-primary text-black font-bold text-xs uppercase tracking-widest overflow-hidden transition-all hover:bg-white hover:text-black"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -121,6 +127,7 @@ export default function Hero() {
             <motion.a
               href="/Saumili-Haldar-Resume.pdf"
               download
+              onClick={() => trackEvent("download_resume", { location: "hero" })}
               className="group flex items-center gap-2 px-10 py-5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/5"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

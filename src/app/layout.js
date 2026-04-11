@@ -39,6 +39,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark selection:bg-primary/30 selection:text-primary">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Saumili Haldar",
+              "url": "https://saumilihaldar.in",
+              "jobTitle": "Software Developer",
+              "sameAs": [
+                "https://www.linkedin.com/in/saumili-haldar-0804s2003",
+                "https://github.com/SaumiliHaldar"
+              ],
+              "description": "Software Developer specializing in scalable backend architectures, real-time data pipelines, and AI-driven applications."
+            }),
+          }}
+        />
+      </head>
       <body className="antialiased bg-background text-foreground flex min-h-screen relative font-sans overflow-x-hidden">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LKZ040TQGS"

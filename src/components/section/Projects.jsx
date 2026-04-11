@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 const projects = [
   {
@@ -196,6 +198,7 @@ function ProjectCard({ project }) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("project_demo_click", { project: project.title })}
             className="group/btn inline-flex items-center gap-4 text-[11px] sm:text-sm font-black uppercase tracking-[0.28em] text-neutral-300 hover:text-primary transition-colors duration-300 font-bold"
           >
             Launch Project
@@ -264,6 +267,7 @@ function GithubCard() {
         href="https://github.com/SaumiliHaldar"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent("github_profile_click", { location: "projects_cta" })}
         className="relative z-10 inline-flex items-center gap-2.5 px-8 py-4 bg-white text-black text-[10px] font-black font-mono uppercase tracking-[0.25em] rounded-full hover:bg-primary transition-all duration-300 shadow-xl active:scale-95"
       >
         <Github size={16} />
@@ -313,7 +317,11 @@ export default function Projects() {
   const springX = useSpring(x, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
-    <section ref={containerRef} id="projects" className="relative h-[400vh] bg-black">
+    <section 
+      ref={useSectionTracking("Projects", containerRef, 0.2)} // Lower threshold for horizontal scroll section
+      id="projects" 
+      className="relative h-[400vh] bg-black"
+    >
 
 
       <div className="sticky top-0 h-screen flex flex-col overflow-hidden">

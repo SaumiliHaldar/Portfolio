@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 const experiences = [
   {
@@ -39,6 +40,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      ref={useSectionTracking("Experience")}
       className="relative flex min-h-[50vh] flex-col items-center justify-center py-24 overflow-hidden bg-black scroll-mt-20"
     >
       {/* Decorative Background Elements */}

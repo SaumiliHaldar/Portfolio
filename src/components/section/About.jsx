@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code, Sparkles } from "lucide-react";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 export default function About() {
   const mechanicalTransition = { duration: 0.8, ease: [0.23, 1, 0.32, 1] };
@@ -9,6 +10,7 @@ export default function About() {
   return (
     <section
       id="about"
+      ref={useSectionTracking("About")}
       className="relative py-16 md:py-24 overflow-hidden bg-zinc-950 scroll-mt-20 selection:bg-primary selection:text-black"
     >
       {/* Background System - Subtle consistency with Hero */}

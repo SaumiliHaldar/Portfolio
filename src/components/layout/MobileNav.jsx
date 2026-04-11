@@ -59,7 +59,13 @@ export default function MobileNav() {
           className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
           <div className="relative h-8 w-8 rounded-full border border-foreground/20 overflow-hidden shrink-0">
-            <Image src="/Saumili.jpg" alt="Saumili" fill className="object-cover" />
+            <Image 
+              src="/Saumili.jpg" 
+              alt="Saumili" 
+              fill 
+              sizes="32px"
+              className="object-cover" 
+            />
           </div>
           <span className="text-sm font-black tracking-tighter uppercase leading-none text-foreground group-hover:text-primary transition-colors">
             Saumili
