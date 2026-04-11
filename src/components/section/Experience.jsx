@@ -11,7 +11,7 @@ const experiences = [
     role: "SOFTWARE DEVELOPER",
     description: (
       <>
-        Architecting a <span className="font-bold italic text-white/90">Windows-based desktop application</span> alongside high-performance <span className="font-bold italic text-white/90">web interfaces</span>. Implementing <span className="font-bold italic text-white/90">MQTT-based communication</span> protocols to ensure seamless, <span className="font-bold italic text-white/90">real-time data exchange</span> across multiple client systems.
+        Architecting a <span className="font-bold italic text-white/90">Windows-based desktop application</span> alongside high-performance <span className="font-bold italic text-white/90">web interfaces</span>. Implementing <span className="font-bold italic text-white/90">MQTT-based communication protocols</span> to ensure seamless, <span className="font-bold italic text-white/90">real-time data exchange</span> across multiple client systems - achieving <span className="font-bold italic text-white/90">latency of less than 100ms</span> and improving operational efficiency by <span className="font-bold italic text-white/90">20%</span>.
       </>
     ),
     tags: ["MQTT", "Windows", "Web", "Real-Time"],
@@ -26,7 +26,7 @@ const experiences = [
     role: "PYTHON DEVELOPER",
     description: (
       <>
-        Developed and maintained a <span className="font-bold italic text-white/90">Python-based e-commerce platform</span>, translating client requirements into scalable <span className="font-bold italic text-white/90">functional features</span>. Enhanced production stability through rigorous <span className="font-bold italic text-white/90">cross-module testing</span> and high-quality <span className="font-bold italic text-white/90">code reviews.</span>
+        Developed and maintained a <span className="font-bold italic text-white/90">Python-based e-commerce platform</span>, translating client requirements into <span className="font-bold italic text-white/90">scalable functional features</span>. Enhanced production stability by <span className="font-bold italic text-white/90">25%</span> through <span className="font-bold italic text-white/90">rigorous cross-module testing</span> and high-quality <span className="font-bold italic text-white/90">code reviews</span>, ensuring near-zero downtime during deployment.
       </>
     ),
     tags: ["Python", "E-Commerce", "Testing", "Documentation"],
