@@ -83,12 +83,12 @@ const projects = [
     description:
       "A premium, immersive digital storytelling platform centered around the cultural heritage of Chai, blending high-end web technology with traditional artistry.",
     highlights: [
-      "Cinematic GSAP hero experience with 120-frame sequence",
+      "Cinematic GSAP hero experience",
       "Interactive 3D Spice Grid & horizontal scroll mechanics",
       "Nomadic Dark Mode aesthetic with premium typography",
     ],
     tags: ["React", "GSAP", "Framer Motion", "Lenis"],
-    github: "https://github.com/SaumiliHaldar/Storylab",
+    github: "https://github.com/SaumiliHaldar/ChaiStory",
     demo: "https://chai-story.vercel.app",
     image: "/chai.jpg",
     color: "#1DB954",
