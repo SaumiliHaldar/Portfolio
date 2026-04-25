@@ -76,6 +76,23 @@ const projects = [
     image: "/mausamvibe.jpg",
     color: "#1ABC54",
   },
+  {
+    id: "05",
+    title: "ChaiStory",
+    subtitle: "Interactive Design",
+    description:
+      "A premium, immersive digital storytelling platform centered around the cultural heritage of Chai, blending high-end web technology with traditional artistry.",
+    highlights: [
+      "Cinematic GSAP hero experience with 120-frame sequence",
+      "Interactive 3D Spice Grid & horizontal scroll mechanics",
+      "Nomadic Dark Mode aesthetic with premium typography",
+    ],
+    tags: ["React", "GSAP", "Framer Motion", "Lenis"],
+    github: "https://github.com/SaumiliHaldar/Storylab",
+    demo: "https://chai-story.vercel.app",
+    image: "/chai.jpg",
+    color: "#1DB954",
+  },
 ];
 
 // ── Feature bullet ─────────────────────────────────────────────────────────
