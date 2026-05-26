@@ -12,6 +12,9 @@ export const metadata = {
   metadataBase: new URL("https://saumilihaldar.in"),
   title: "Saumili Haldar | Software Developer",
   description: "Software Developer specializing in scalable backend architectures, real-time data pipelines, and AI-driven applications. Class of 2025 Computer Science Graduate.",
+  alternates: {
+    canonical: "https://saumilihaldar.in",
+  },
   openGraph: {
     title: "Saumili Haldar | Software Developer",
     description: "Building the next generation of real-time AI applications and robust backend systems.",

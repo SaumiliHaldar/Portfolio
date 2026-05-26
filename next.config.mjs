@@ -21,6 +21,12 @@ const nextConfig = {
         destination: 'https://saumilihaldar.in/:path*',
         permanent: true,
       },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'saumilihaldar.vercel.app' }],
+        destination: 'https://saumilihaldar.in/:path*',
+        permanent: true,
+      },
     ]
   },
 };
