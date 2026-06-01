@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://saumilihaldar.in
+Host: https://saumilihaldar.in/
 
 # Sitemaps
 Sitemap: https://saumilihaldar.in/sitemap.xml

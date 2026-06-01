@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   async headers() {
     return [
       {
@@ -8,6 +9,16 @@ const nextConfig = {
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload'
+          }
+        ]
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'saumilihaldar.vercel.app' }],
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex'
           }
         ]
       }

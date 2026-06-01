@@ -13,7 +13,7 @@ export const metadata = {
   title: "Saumili Haldar | Software Developer",
   description: "Software Developer specializing in scalable backend architectures, real-time data pipelines, and AI-driven applications. Class of 2025 Computer Science Graduate.",
   alternates: {
-    canonical: "https://saumilihaldar.in",
+    canonical: "https://saumilihaldar.in/",
   },
   openGraph: {
     title: "Saumili Haldar | Software Developer",
