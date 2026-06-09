@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio
 
-## Getting Started
+A modern, responsive portfolio showcasing my projects, skills, and professional experience. Built with Next.js and designed for a premium user experience.
 
-First, run the development server:
+**Live Demo**: [saumilihaldar.in](https://saumilihaldar.in)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+- [Contact](#contact)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## About
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This repository contains the source code for my personal portfolio website. It serves as a digital resume and a centralized hub to explore my technical projects, illustrating my proficiency in modern web development and software engineering.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Responsive Design**: Optimized for seamless viewing across all devices, from desktops to mobile phones.
+- **Modern UI/UX**: Clean aesthetics, smooth animations, and an intuitive layout.
+- **Project Showcase**: Highlighted overviews of my recent work, emphasizing problem-solving skills and technical implementation.
+- **Fast Performance**: Built with Next.js for server-side rendering and optimal load times.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js (React)
+- **Styling & UI**: Tailwind CSS 
+- **Animations & Interactions**: Framer Motion, Lenis
+- **Iconography & Assets**: Lucide, Tabler Icons
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+&copy; 2026 Saumili Haldar. All Rights Reserved.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repository is publicly available for the sole purpose of showcasing my technical skills to prospective employers, clients, and collaborators. You may not copy, reproduce, distribute, or create derivative works from this code without explicit permission.
+
+## Contact
+
+For any inquiries, collaboration opportunities, or feedback, feel free to reach out:
+
+**Name**: Saumili Haldar  
+**Email**: haldar.saumili843@gmail.com  
+**LinkedIn**: [Saumili Haldar](https://www.linkedin.com/in/saumili-haldar-0804s2003)
