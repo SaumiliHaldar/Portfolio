@@ -15,6 +15,14 @@ export const metadata = {
   alternates: {
     canonical: "https://saumilihaldar.in/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "Saumili Haldar | Software Developer",
     description: "Building the next generation of real-time AI applications and robust backend systems.",
