@@ -15,7 +15,7 @@ const projects = [
     description:
       "A high-concurrency train booking platform with atomic seat allocation, dynamic pricing, Razorpay checkout, and real-time MQTT delay alerts.",
     highlights: [
-      "Shared-memory seat allocation with no database-level locking",
+      "Lock-free seat allocation via shared-memory buffer",
       "Real-time delay rerouting & telemetry using MQTT",
       "QR-coded PDF ticket delivery via Email",
     ],
