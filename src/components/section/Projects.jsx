@@ -8,8 +8,25 @@ import { trackEvent } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/useSectionTracking";
 
 const projects = [
-  {
+    {
     id: "01",
+    title: "Railyn",
+    subtitle: "Railway Booking Engine",
+    description:
+      "A high-concurrency train booking platform with atomic seat allocation, dynamic pricing, Razorpay checkout, and real-time MQTT delay alerts.",
+    highlights: [
+      "Shared-memory seat allocation with no database-level locking",
+      "Real-time delay rerouting & telemetry using MQTT",
+      "QR-coded PDF ticket delivery via Email",
+    ],
+    tags: ["FastAPI", "React", "MongoDB", "Redis"],
+    github: "https://github.com/SaumiliHaldar/Railyn",
+    demo: "https://railyn.vercel.app",
+    image: "/railyn.jpg",
+    color: "#1ED760",
+  },
+  {
+    id: "02",
     title: "DevTrackr",
     subtitle: "Developer Analytics SaaS",
     description:
@@ -26,7 +43,7 @@ const projects = [
     color: "#1DB954",
   },
   {
-    id: "02",
+    id: "03",
     title: "Lysn",
     subtitle: "PDF to Audio App",
     description:
@@ -43,7 +60,7 @@ const projects = [
     color: "#1ED760",
   },
   {
-    id: "03",
+    id: "04",
     title: "NexGenie",
     subtitle: "Chatbot for LMS",
     description:
@@ -59,25 +76,25 @@ const projects = [
     image: "/nexgenie.jpg",
     color: "#19E68C",
   },
-  {
-    id: "04",
-    title: "MausamVibe",
-    subtitle: "Weather App",
-    description:
-      "A Django-based weather app with real-time location-based forecasts and intuitive data visualization using OpenWeatherMap API.",
-    highlights: [
-      "Live location-based weather & 5-day forecasting",
-      "OpenWeatherMap API with real-time data refresh",
-      "Intuitive data visualization & dynamic UI states",
-    ],
-    tags: ["Django", "Python", "JS", "Weather API"],
-    github: "https://github.com/SaumiliHaldar/MausamVibe",
-    demo: "https://mausamvibe.onrender.com",
-    image: "/mausamvibe.jpg",
-    color: "#1ABC54",
-  },
   // {
   //   id: "05",
+  //   title: "MausamVibe",
+  //   subtitle: "Weather App",
+  //   description:
+  //     "A Django-based weather app with real-time location-based forecasts and intuitive data visualization using OpenWeatherMap API.",
+  //   highlights: [
+  //     "Live location-based weather & 5-day forecasting",
+  //     "OpenWeatherMap API with real-time data refresh",
+  //     "Intuitive data visualization & dynamic UI states",
+  //   ],
+  //   tags: ["Django", "Python", "JS", "Weather API"],
+  //   github: "https://github.com/SaumiliHaldar/MausamVibe",
+  //   demo: "https://mausamvibe.onrender.com",
+  //   image: "/mausamvibe.jpg",
+  //   color: "#1ABC54",
+  // },
+  // {
+  //   id: "06",
   //   title: "ChaiStory",
   //   subtitle: "Interactive Design",
   //   description:
