@@ -1,34 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "About", href: "#about", id: "about" },
-  { name: "Journey", href: "#experience", id: "experience" },
-  { name: "Skills", href: "#skills", id: "skills" },
-  { name: "Works", href: "#projects", id: "projects" },
-  { name: "Connect", href: "#contact", id: "contact" },
-];
+import { navItems, useClockDate } from "@/lib/nav";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentDate, setCurrentDate] = useState({ month: "", day: "", year: "" });
-
-  useEffect(() => {
-    const formatDate = () => {
-      const now = new Date();
-      return {
-        month: now.toLocaleDateString("en-GB", { month: "short" }).toUpperCase(),
-        day: now.toLocaleDateString("en-GB", { day: "2-digit" }),
-        year: now.toLocaleDateString("en-GB", { year: "numeric" }),
-      };
-    };
-    setCurrentDate(formatDate());
-    const timer = setInterval(() => setCurrentDate(formatDate()), 60000);
-    return () => clearInterval(timer);
-  }, []);
+  const currentDate = useClockDate();
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
