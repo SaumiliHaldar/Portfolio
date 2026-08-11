@@ -76,40 +76,6 @@ const projects = [
     image: "/nexgenie.jpg",
     color: "#19E68C",
   },
-  // {
-  //   id: "05",
-  //   title: "MausamVibe",
-  //   subtitle: "Weather App",
-  //   description:
-  //     "A Django-based weather app with real-time location-based forecasts and intuitive data visualization using OpenWeatherMap API.",
-  //   highlights: [
-  //     "Live location-based weather & 5-day forecasting",
-  //     "OpenWeatherMap API with real-time data refresh",
-  //     "Intuitive data visualization & dynamic UI states",
-  //   ],
-  //   tags: ["Django", "Python", "JS", "Weather API"],
-  //   github: "https://github.com/SaumiliHaldar/MausamVibe",
-  //   demo: "https://mausamvibe.onrender.com",
-  //   image: "/mausamvibe.jpg",
-  //   color: "#1ABC54",
-  // },
-  // {
-  //   id: "06",
-  //   title: "ChaiStory",
-  //   subtitle: "Interactive Design",
-  //   description:
-  //     "A premium, immersive digital storytelling platform centered around the cultural heritage of Chai, blending high-end web technology with traditional artistry.",
-  //   highlights: [
-  //     "Cinematic GSAP hero experience",
-  //     "Interactive 3D Spice Grid & horizontal scroll mechanics",
-  //     "Nomadic Dark Mode aesthetic with premium typography",
-  //   ],
-  //   tags: ["React", "GSAP", "Framer Motion", "Lenis"],
-  //   github: "https://github.com/SaumiliHaldar/ChaiStory",
-  //   demo: "https://chai-story.vercel.app",
-  //   image: "/chai.jpg",
-  //   color: "#1DB954",
-  // },
 ];
 
 // ── Feature bullet ─────────────────────────────────────────────────────────
