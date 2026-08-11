@@ -107,7 +107,7 @@ export default function Navbar() {
         
         <div className="flex items-center gap-4">
           <a
-            href="/Saumili-Haldar-Resume.pdf"
+            href="/Saumili_Haldar_Resume.pdf"
             download
             onClick={() => trackEvent("download_resume", { location: "navbar" })}
             className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground transition-all duration-300 hover:brightness-105 active:scale-95 shadow-lg shadow-primary/20"

@@ -125,7 +125,7 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="/Saumili-Haldar-Resume.pdf"
+              href="/Saumili_Haldar_Resume.pdf"
               download
               onClick={() => trackEvent("download_resume", { location: "hero" })}
               className="group flex items-center gap-2 px-10 py-5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest transition-all hover:border-primary/60 hover:text-primary hover:bg-primary/5"
