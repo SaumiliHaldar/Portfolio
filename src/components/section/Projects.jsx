@@ -289,12 +289,11 @@ export default function Projects() {
       if (scrollRef.current) {
         const fullWidth = scrollRef.current.scrollWidth;
         const viewportWidth = window.innerWidth;
-        const lastCard = scrollRef.current.lastElementChild;
-        const lastCardWidth = lastCard ? lastCard.offsetWidth : 0;
-        const paddingRight =
-          parseFloat(getComputedStyle(scrollRef.current).paddingRight) || 0;
-        const targetDistance =
-          fullWidth - paddingRight - lastCardWidth / 2 - viewportWidth / 2;
+        // Stop once the last card's edge reaches the viewport edge (same gap
+        // as the left start) instead of centering it — centering left a big
+        // blank gap on wide screens where the card is much narrower than the
+        // viewport.
+        const targetDistance = fullWidth - viewportWidth;
         setScrollDistance(targetDistance > 0 ? targetDistance : 0);
       }
     };
